@@ -37,13 +37,16 @@ def greet():
             flash("Lütfen alanları doldurunuz")
             print("if")
         else:
-            print("else")
+            try:
+                print("try")
+                res = user.query.filter_by(
+                    username=request.form["username"],
+                    password=request.form["password"],
+                ).first()
 
-            findUser = db.one_or_404(
-                db.select(user).filter_by(
-                    username=request.form["username"], password=request.form["password"]
-                )
-            )
+                print(res.id)
+            except Exception:
+                flash("Kullanıcı bulunamadı")
 
     return render_template("login.html")
 

@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='dist/css/output.css')}}"
+    />
   </head>
   <body>
     {% for message in get_flashed_messages() %}
@@ -17,10 +21,10 @@
     {% endfor %}
     <form action="greet" method="post">
       <p>Username</p>
-      <input type="text" name="username" />
+      <input type="text" name="username" class="border border-gray-300" />
       <br />
       <p>Password</p>
-      <input type="text" name="password" />
+      <input type="text" name="password" class="border border-gray-300" />
       <br />
       <br />
       <input type="submit" value="Ok" id="greet" />
