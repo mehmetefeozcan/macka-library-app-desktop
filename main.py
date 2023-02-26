@@ -25,10 +25,6 @@ class user(db.Model):
     password = db.Column(db.String(10), nullable=False)
 
 
-with app.app_context:
-    db.create_all()
-
-
 @app.route("/")
 def indexPage():
     return render_template("login.html")
@@ -37,13 +33,17 @@ def indexPage():
 @app.route("/greet", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
-        newUser = user(
-            username=request.form["username"],
-            password=request.form["password"],
-        )
+        if request.form["username"] == "" and request.form["password"] == "":
+            flash("Lütfen alanları doldurunuz")
+            print("if")
+        else:
+            print("else")
 
-        db.session.add(newUser)
-        db.session.commit()
+            findUser = db.one_or_404(
+                db.select(user).filter_by(
+                    username=request.form["username"], password=request.form["password"]
+                )
+            )
 
     return render_template("login.html")
 

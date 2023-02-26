@@ -7,7 +7,15 @@
     <title>Login</title>
   </head>
   <body>
-    <form action="greet" method="get">
+    {% for message in get_flashed_messages() %}
+    <div
+      class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+      role="alert"
+    >
+      {{ message }}
+    </div>
+    {% endfor %}
+    <form action="greet" method="post">
       <p>Username</p>
       <input type="text" name="username" />
       <br />
