@@ -4,11 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>YTÜ Maçka MTAL - Kütüphane</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="../static/img/restaurant/apple-touch-icon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../static/img/restaurant/apple-touch-icon.png"
+    />
     <link
       rel="stylesheet"
       href="{{url_for('static',filename='dist/css/output.css')}}"
     />
+
+    <style>
+      #inputs {
+        margin: 5% 40%;
+      }
+    </style>
   </head>
   <body>
     {% for message in get_flashed_messages() %}
@@ -19,7 +35,8 @@
       {{ message }}
     </div>
     {% endfor %}
-    <form action="greet" method="post">
+
+    <form action="greet" method="post" id="inputs">
       <p>Username</p>
       <input type="text" name="username" class="border border-gray-300" />
       <br />
@@ -27,7 +44,7 @@
       <input type="text" name="password" class="border border-gray-300" />
       <br />
       <br />
-      <input type="submit" value="Ok" id="greet" />
+      <input type="submit" value="Ok" />
     </form>
   </body>
 </html>

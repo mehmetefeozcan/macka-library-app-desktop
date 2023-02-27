@@ -13,7 +13,7 @@ app.secret_key = "macka_LIBRARY2023"
 # db connect
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./library.db"
 # add flaskwebgui
-ui = FlaskUI(app=app, server="flask", width=800, height=600)
+ui = FlaskUI(app=app, server="flask")
 # add db
 db = SQLAlchemy(app)
 
@@ -25,12 +25,12 @@ class user(db.Model):
     password = db.Column(db.String(10), nullable=False)
 
 
-@app.route("/")
+@app.route("/home")
 def indexPage():
-    return render_template("login.html")
+    return render_template("index.html")
 
 
-@app.route("/greet", methods=["POST", "GET"])
+@app.route("/", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
         if request.form["username"] == "" and request.form["password"] == "":
@@ -45,6 +45,7 @@ def greet():
                 ).first()
 
                 print(res.id)
+                return redirect("/")
             except Exception:
                 flash("Kullanıcı bulunamadı")
 
