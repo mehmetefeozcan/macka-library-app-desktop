@@ -1,10 +1,6 @@
 from flask import *
 from flaskwebgui import FlaskUI
 from flask_sqlalchemy import *
-import time
-
-
-# from model.user_model import *
 
 
 # flask instance
@@ -19,7 +15,6 @@ ui = FlaskUI(app=app, server="flask")
 db = SQLAlchemy(app)
 
 
-# User Model
 class user(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(10), nullable=False)
@@ -34,7 +29,7 @@ def indexPage():
 @app.route("/", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
-        if request.form["username"] == "" and request.form["password"] == "":
+        if request.form["username"] == "" or request.form["password"] == "":
             flash("Lütfen alanları doldurunuz")
 
             print("if")
@@ -45,12 +40,15 @@ def greet():
                     username=request.form["username"],
                     password=request.form["password"],
                 ).first()
+
                 print(res)
                 if res != None:
                     return redirect("/home")
                 flash("Hatalı giriş!")
 
             except Exception:
+                print("Exception")
+
                 flash("Kullanıcı bulunamadı")
 
     return render_template("login.html")
