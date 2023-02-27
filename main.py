@@ -1,6 +1,7 @@
 from flask import *
 from flaskwebgui import FlaskUI
 from flask_sqlalchemy import *
+import time
 
 
 # from model.user_model import *
@@ -35,6 +36,7 @@ def greet():
     if request.method == "POST":
         if request.form["username"] == "" and request.form["password"] == "":
             flash("Lütfen alanları doldurunuz")
+
             print("if")
         else:
             try:
@@ -43,9 +45,11 @@ def greet():
                     username=request.form["username"],
                     password=request.form["password"],
                 ).first()
+                print(res)
+                if res != None:
+                    return redirect("/home")
+                flash("Hatalı giriş!")
 
-                print(res.id)
-                return redirect("/")
             except Exception:
                 flash("Kullanıcı bulunamadı")
 
