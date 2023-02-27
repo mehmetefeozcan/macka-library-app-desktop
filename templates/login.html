@@ -19,34 +19,32 @@
       href="{{url_for('static',filename='css/main.css')}}"
       rel="stylesheet"
     />
-
-    <style>
-      #inputs {
-        margin: 5% 40%;
-      }
-    </style>
   </head>
   <body>
-    {% for message in get_flashed_messages() %}
-    <div
-      class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
-      role="alert"
-    >
-      <span class="sr-only">Info</span>
-      <div><span class="font-medium">Uyarı!</span> {{message}}</div>
-    </div>
-    {% endfor %}
+    <div class="justify-center align-center text-center flex flex-auto ">
+      <div class="bg-red-800 justify-center align-center">
+        <form action="" method="post" id="inputs">
+          <p>Username</p>
+          <input type="text" name="username" class="border border-gray-300" />
+          <br />
+          <p class="text-blue-400">Password</p>
+          <input type="text" name="password" class="border border-gray-300" />
+          <br />
+          <br />
+          <input type="submit" value="Ok" />
+        </form>
+      </div>
 
-    <form action="" method="post" id="inputs">
-      <p>Username</p>
-      <input type="text" name="username" class="border border-gray-300" />
-      <br />
-      <p class="text-red-400">Password</p>
-      <input type="text" name="password" class="border border-gray-300" />
-      <br />
-      <br />
-      <input type="submit" value="Ok" />
-    </form>
+      {% for message in get_flashed_messages() %}
+      <div
+        class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
+        role="alert"
+      >
+        <span class="sr-only">Info</span>
+        <div><span class="font-medium">Uyarı!</span> {{message}}</div>
+      </div>
+      {% endfor %}
+    </div>
   </body>
 </html>
 
