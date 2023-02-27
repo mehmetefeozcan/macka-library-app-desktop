@@ -29,10 +29,11 @@
   <body>
     {% for message in get_flashed_messages() %}
     <div
-      class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400"
+      class="flex p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
       role="alert"
     >
-      {{ message }}
+      <span class="sr-only">Info</span>
+      <div><span class="font-medium">Uyarı!</span> {{message}}</div>
     </div>
     {% endfor %}
 
@@ -40,7 +41,7 @@
       <p>Username</p>
       <input type="text" name="username" class="border border-gray-300" />
       <br />
-      <p class="text-green-100">Password</p>
+      <p class="text-red-400">Password</p>
       <input type="text" name="password" class="border border-gray-300" />
       <br />
       <br />
