@@ -680,12 +680,16 @@ video {
   margin-top: 1.25rem;
 }
 
-.mt-96 {
-  margin-top: 24rem;
-}
-
 .flex {
   display: flex;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-auto {
@@ -732,6 +736,11 @@ video {
 .border-yellow-300 {
   --tw-border-opacity: 1;
   border-color: rgb(253 224 71 / var(--tw-border-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-red-800 {
