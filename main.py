@@ -25,6 +25,10 @@ class user(db.Model):
 def indexPage():
     return render_template("index.html")
 
+@app.route("/add")
+def addBookPage():
+    return render_template("addBook.html")
+
 
 @app.route("/", methods=["POST", "GET"])
 def greet():
@@ -51,7 +55,7 @@ def greet():
 
                 flash("Kullanıcı bulunamadı")
 
-    return render_template("login.html")
+    return render_template("index.html") # return render_template("login.html")
 
 
 if __name__ == "__main__":
