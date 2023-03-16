@@ -4,6 +4,9 @@
   },
   "scripts": {
     "create-css": "npx tailwindcss -i ./static/src/input.css -o ./static/css/main.css --watch",
-    "flask" : "flask --app main run --debug"
+    "flask": "flask --app main run --debug"
+  },
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.2.4"
   }
 }
