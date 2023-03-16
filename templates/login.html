@@ -21,17 +21,35 @@
     />
   </head>
   <body>
-    <div class="justify-center align-center text-center flex flex-auto ">
-      <div class="bg-red-800 justify-center align-center">
+    <div class="justify-center items-center text-center flex pt-[20%]">
+      <div
+        class="bg-green-300 justify-center items-center rounded-3xl flex flex-col p-[3%] min-w-[30%]"
+      >
+        <p
+          class="font-[550] md:text-4xl text-3xl antialiased bg-clip-text bg-gradient-to-r to-[#BF9270] from-[#AD8B73] text-transparent mb-[8%]"
+        >
+          Giriş Yap
+        </p>
         <form action="" method="post" id="inputs">
-          <p>Username</p>
-          <input type="text" name="username" class="border border-gray-300" />
-          <br />
-          <p class="text-blue-400">Password</p>
-          <input type="text" name="password" class="border border-gray-300" />
-          <br />
-          <br />
-          <input type="submit" value="Ok" />
+          <div class="mb-[6%]">
+            <p class="text-white antialiased text-2xl">Kullanıcı Adı</p>
+            <input
+              type="text"
+              name="username"
+              class="border rounded-full border-gray-300"
+            />
+          </div>
+          <div class="mb-[10%]">
+            <p class="text-white antialiased text-2xl">Şifre</p>
+            <input
+              type="text"
+              name="password"
+              class="border rounded-full border-gray-300"
+            />
+          </div>
+          <div>
+            <input type="submit" value="Ok" />
+          </div>
         </form>
       </div>
 
