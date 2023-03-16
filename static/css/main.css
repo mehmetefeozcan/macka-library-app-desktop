@@ -680,92 +680,56 @@ video {
   margin-top: 1.25rem;
 }
 
-.mt-96 {
-  margin-top: 24rem;
-}
-
-.ml-32 {
-  margin-left: 8rem;
-}
-
-.mt-32 {
-  margin-top: 8rem;
+.mt-\[2\%\] {
+  margin-top: 2%;
 }
 
 .flex {
   display: flex;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-full {
   height: 100%;
-}
-
-.h-\[100\%\] {
-  height: 100%;
-}
-
-.h-\[full\] {
-  height: full;
-}
-
-.min-h-\[\] {
-  min-height: ;
-}
-
-.min-h-\[1000px\] {
-  min-height: 1000px;
-}
-
-.min-h-\[500px\] {
-  min-height: 500px;
-}
-
-.min-h-\[00px\] {
-  min-height: 00px;
-}
-
-.min-h-\[900px\] {
-  min-height: 900px;
-}
-
-.min-h-\[800px\] {
-  min-height: 800px;
-}
-
-.min-h-\[700px\] {
-  min-height: 700px;
-}
-
-.min-h-\[750px\] {
-  min-height: 750px;
-}
-
-.min-h-\[880px\] {
-  min-height: 880px;
 }
 
 .min-h-\[850px\] {
   min-height: 850px;
 }
 
-.w-32 {
-  width: 8rem;
+.w-\[50\%\] {
+  width: 50%;
 }
 
 .w-auto {
   width: auto;
 }
 
-.w-\[50\%\] {
-  width: 50%;
+.w-\[90\%\] {
+  width: 90%;
 }
 
-.w-\[5\] {
-  width: 5;
+.w-\[90\] {
+  width: 90;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-\[80\%\] {
+  width: 80%;
+}
+
+.w-\[100\%\] {
+  width: 100%;
+}
+
+.w-\[00\%\] {
+  width: 00%;
+}
+
+.w-\[\] {
+  width: ;
 }
 
 .flex-auto {
@@ -778,6 +742,10 @@ video {
 
 .flex-row {
   flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .items-center {
@@ -794,6 +762,46 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+.rounded-\[\] {
+  border-radius: ;
+}
+
+.rounded-\[30\] {
+  border-radius: 30;
+}
+
+.rounded-\[30xl\] {
+  border-radius: 30xl;
+}
+
+.rounded-\[30px\] {
+  border-radius: 30px;
+}
+
+.rounded-\[50px\] {
+  border-radius: 50px;
+}
+
+.rounded-\[100px\] {
+  border-radius: 100px;
 }
 
 .border {
@@ -814,11 +822,6 @@ video {
   border-color: rgb(253 224 71 / var(--tw-border-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-red-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(153 27 27 / var(--tw-bg-opacity));
@@ -833,49 +836,65 @@ video {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity));
 }
 
-.bg-gray-300 {
+.bg-green-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
 }
 
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+.bg-\[\] {
+  background-color: ;
 }
 
-.bg-gray-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+.bg-\[url\] {
+  background-color: url;
 }
 
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+.bg-\[url\[\]\] {
+  background-color: url[];
 }
 
-.bg-orange-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 215 170 / var(--tw-bg-opacity));
+.bg-\[url\(\)\] {
+  background-image: url();
 }
 
-.bg-red-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+.bg-\[url\(\.\.\/\)\] {
+  background-image: url(../);
 }
 
-.bg-blue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+.bg-\[url\(\.\.\/static\/img\)\] {
+  background-image: url(../static/img);
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+.bg-\[url\(\.\.\/static\/img\/\)\] {
+  background-image: url(../static/img/);
 }
 
-.bg-green-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+.bg-\[url\(\.\.\/static\/img\/book\.webp\)\] {
+  background-image: url(../static/img/book.webp);
+}
+
+.bg-\[url\(\.\.\/img\/book\.webp\)\] {
+  background-image: url(../img/book.webp);
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-contain {
+  background-size: contain;
+}
+
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-4 {
@@ -955,8 +974,92 @@ video {
   padding-top: 1.25rem;
 }
 
+.pt-\[5\%\] {
+  padding-top: 5%;
+}
+
+.pb-\[5\%\] {
+  padding-bottom: 5%;
+}
+
+.pt-\[3\%\] {
+  padding-top: 3%;
+}
+
+.pb-\[3\%\] {
+  padding-bottom: 3%;
+}
+
+.pt-\[6\%\] {
+  padding-top: 6%;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
+.pl-\[2\%\] {
+  padding-left: 2%;
+}
+
+.pr-\[2\%\] {
+  padding-right: 2%;
+}
+
+.pr-\[3\%\] {
+  padding-right: 3%;
+}
+
+.pb-\[4\%\] {
+  padding-bottom: 4%;
+}
+
+.pl-\[5\%\] {
+  padding-left: 5%;
+}
+
+.pr-\[5\%\] {
+  padding-right: 5%;
+}
+
+.pb-32 {
+  padding-bottom: 8rem;
+}
+
+.pt-32 {
+  padding-top: 8rem;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+
+.pb-\[\%\] {
+  padding-bottom: %;
+}
+
+.pb-\[7\%\] {
+  padding-bottom: 7%;
+}
+
 .text-center {
   text-align: center;
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .text-sm {
@@ -964,8 +1067,31 @@ video {
   line-height: 1.25rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .font-medium {
   font-weight: 500;
+}
+
+.font-\[550\] {
+  font-weight: 550;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .text-blue-400 {
@@ -976,6 +1102,16 @@ video {
 .text-yellow-800 {
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-color-scheme: dark) {
