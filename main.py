@@ -55,7 +55,7 @@ def greet():
 
                 flash("Kullanıcı bulunamadı")
 
-    return render_template("index.html") # return render_template("login.html")
+    return render_template("login.html") # return render_template("login.html")
 
 
 if __name__ == "__main__":
