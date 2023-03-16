@@ -21,7 +21,9 @@
     />
   </head>
   <body>
-    <div class="justify-center items-center text-center flex pt-[20%]">
+    <div
+      class="justify-center items-center text-center flex pt-[15%] flex-col-reverse"
+    >
       <div
         class="bg-green-300 justify-center items-center rounded-3xl flex flex-col p-[3%] min-w-[30%]"
       >
@@ -32,23 +34,27 @@
         </p>
         <form action="" method="post" id="inputs">
           <div class="mb-[6%]">
-            <p class="text-white antialiased text-2xl">Kullanıcı Adı</p>
+            <p class="text-white antialiased text-2xl mb-[2%]">Kullanıcı Adı</p>
             <input
               type="text"
               name="username"
-              class="border rounded-full border-gray-300"
+              class="border rounded-full border-gray-300 text-center pl-2 pr-2"
             />
           </div>
           <div class="mb-[10%]">
-            <p class="text-white antialiased text-2xl">Şifre</p>
+            <p class="text-white antialiased text-2xl mb-[2%]">Şifre</p>
             <input
               type="text"
               name="password"
-              class="border rounded-full border-gray-300"
+              class="border rounded-full border-gray-300 pl-2 pr-2 text-center"
             />
           </div>
           <div>
-            <input type="submit" value="Ok" />
+            <input
+              class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
+              type="submit"
+              value="Ok"
+            />
           </div>
         </form>
       </div>
