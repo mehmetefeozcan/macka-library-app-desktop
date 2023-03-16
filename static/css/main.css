@@ -1058,6 +1058,10 @@ video {
   padding-right: 4%;
 }
 
+.pr-\[6\%\] {
+  padding-right: 6%;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1149,6 +1153,11 @@ video {
 .text-\[\#fff\] {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#BF9270\] {
+  --tw-text-opacity: 1;
+  color: rgb(191 146 112 / var(--tw-text-opacity));
 }
 
 .antialiased {
