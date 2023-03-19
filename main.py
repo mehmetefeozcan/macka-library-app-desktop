@@ -21,12 +21,35 @@ class user(db.Model):
     password = db.Column(db.String(10), nullable=False)
 
 
+class books(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    bookNo = db.Column(db.String(100), nullable=False)
+    bookName = db.Column(db.String(100), nullable=False)
+    writer = db.Column(db.String(100), nullable=False)
+    page = db.Column(db.Integer, nullable=False)
+    publisher = db.Column(db.String(100), nullable=False)
+    category = db.Column(db.String(100), nullable=False)
+
+
 @app.route("/home")
 def indexPage():
     return render_template("index.html")
 
-@app.route("/add")
+
+@app.route("/add", methods=["POST", "GET"])
 def addBookPage():
+    if request.method == "POST":
+        newBook = books(
+            bookNo="1",
+            bookName="Asd",
+            writer="asd",
+            page=10,
+            publisher="asd",
+            category="ŞİİR",
+        )
+
+        db.session.add(newBook)
+        db.session.commit()
     return render_template("addBook.html")
 
 
@@ -52,10 +75,9 @@ def greet():
 
             except Exception:
                 print("Exception")
-
                 flash("Kullanıcı bulunamadı")
 
-    return render_template("login.html") # return render_template("login.html")
+    return render_template("login.html")  # return render_template("login.html")
 
 
 if __name__ == "__main__":
