@@ -106,99 +106,22 @@
             </article>
           </form>
         </section>
-      </div>
-    </div>
-    <div
-      class="flex justify-center items-center text-center md:w-[50%] w-full h-full mt-[10%]"
-    >
-      <div
-        class="min-w-[90%] flex justify-center items-center text-center rounded-lg md:pt-[5%] pt-[10%] pb-[5%] flex-col"
-      >
-        <div
-          class="flex flex-row justify-center items-center text-center mb-[2%]"
-        >
-          <section
-            class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[60px] m-m:p-0 pr-1"
-          >
-            <p class="text-[#BF9270]">Tür</p>
-            <hr class="border-[#BF9270] w-[95%]" />
-          </section>
-          <!-- Tür -->
-          <section
-            class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] m-m:p-0 pr-1"
-          >
-            <p class="text-[#BF9270]">Kitap Adı</p>
-            <hr class="border-[#BF9270] w-[95%]" />
-          </section>
-          <!-- Kitap Adı -->
-          <section
-            class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] m-m:p-0 pr-1"
-          >
-            <p class="text-[#BF9270]">Yazar</p>
-            <hr class="border-[#BF9270] w-[95%]" />
-          </section>
-          <!-- Yazar -->
-          <section
-            class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] m-m:p-0 pr-1"
-          >
-            <p class="text-[#BF9270]">Syf Sayısı</p>
-            <hr class="border-[#BF9270] w-[95%]" />
-          </section>
-          <!-- Sayfa Sayısı -->
-          <section
-            class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] m-m:p-0 pr-1"
-          >
-            <p class="text-[#BF9270]">Yayınevi</p>
-            <hr class="border-[#BF9270] w-[95%]" />
-          </section>
-          <!-- Yayınevi -->
-        </div>
-        <div class="mb-[2%]">
-          <ol
-            class="flex flex-row justify-center items-center m-m:text-center text-left"
-          >
-            <li
-              class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[40px] m-m:w-auto w-[10px] mr-[10%] m-m:m-0"
-            >
-              Şiir
-            </li>
-            <li
-              class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[40px] m-m:w-auto w-[10px] mr-[10%] m-m:m-0"
-            >
-              Çile
-            </li>
-            <li
-              class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[40px] m-m:w-auto w-[10px] mr-[10%] m-m:m-0"
-            >
-              Necip Fazıl Kısakürek
-            </li>
-            <li
-              class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[40px] m-m:w-auto w-[10px] mr-[10%] m-m:m-0"
-            >
-              150
-            </li>
-            <li
-              class="m-m:min-w-[80px] lg:min-w-[100px] m-m:max-w-[120px] min-w-[40px] max-w-[10px] m-m:w-auto mr-[10%] m-m:m-0"
-            >
-              Büyük Doğu Yayınları
-            </li>
-          </ol>
-        </div>
-        <div
-          class="w-[100%] flex flex-row justify-center items-center text-center"
-        >
-          <button
-            class="pt-[1%] pb-[1%] pl-[4%] pr-[4%] bg-green-300 text-white rounded-full"
-          >
-            Ekle
-          </button>
-
-          <button
-            class="pt-[1%] pb-[1%] pl-[4%] pr-[4%] bg-[#BF9270] text-white rounded-full ml-[10%]"
-          >
-            Sil
-          </button>
-        </div>
+        <form action="post" name="ImportExcel">
+          <div class="mt-4">
+            <input
+              type="file"
+              name="ImportExcel"
+              title="Select File"
+              id="importData"
+              accept=".xls,.xlsx"
+            />
+            <input
+              class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
+              type="submit"
+              value="Exceli Ekle"
+            />
+          </div>
+        </form>
       </div>
     </div>
   </body>
