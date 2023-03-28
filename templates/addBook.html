@@ -37,7 +37,7 @@
           </p>
         </section>
         <section>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <article class="pb-[7%]">
               <p class="text-white antialiased text-2xl font-serif italic">
                 Tür Seç:
@@ -102,26 +102,26 @@
                 class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
                 type="submit"
                 value="Listeye Ekle"
+                name="btn"
               />
             </article>
+            <div class="mt-4">
+              <input
+                type="file"
+                name="ImportExcel"
+                title="Select File"
+                id="importData"
+                accept=".xls,.xlsx"
+              />
+              <input
+                class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
+                type="submit"
+                value="Exceli Ekle"
+                name="btn"
+              />
+            </div>
           </form>
         </section>
-        <form action="post" name="ImportExcel">
-          <div class="mt-4">
-            <input
-              type="file"
-              name="ImportExcel"
-              title="Select File"
-              id="importData"
-              accept=".xls,.xlsx"
-            />
-            <input
-              class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
-              type="submit"
-              value="Exceli Ekle"
-            />
-          </div>
-        </form>
       </div>
     </div>
   </body>

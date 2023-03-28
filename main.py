@@ -3,7 +3,6 @@ from flaskwebgui import FlaskUI
 from flask_sqlalchemy import *
 import pandas as pd
 
-
 # flask instance
 app = Flask(__name__)
 # secret key
@@ -24,12 +23,12 @@ class user(db.Model):
 
 class books(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    bookNo = db.Column(db.String(100), nullable=False)
-    bookName = db.Column(db.String(100), nullable=False)
-    writer = db.Column(db.String(100), nullable=False)
-    page = db.Column(db.Integer, nullable=False)
-    publisher = db.Column(db.String(100), nullable=False)
-    category = db.Column(db.String(100), nullable=False)
+    bookNo = db.Column(db.String(100), nullable=True)
+    bookName = db.Column(db.String(100), nullable=True)
+    writer = db.Column(db.String(100), nullable=True)
+    page = db.Column(db.String(10), nullable=True)
+    publisher = db.Column(db.String(100), nullable=True)
+    category = db.Column(db.String(100), nullable=True)
 
 
 @app.route("/home")
@@ -39,7 +38,7 @@ def indexPage():
 
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
-    if request.method == "POST":
+    if request.method == "POST" and request.form["btn"] == "Listeye Ekle":
         newBook = books(
             bookNo="1",
             bookName="Asd",
@@ -52,42 +51,56 @@ def addBookPage():
         db.session.add(newBook)
         db.session.commit()
 
-    elif request.method == "POST" and request.form["ImportExcel"]:
-        print("asdadadasd")
-        """with pd.ExcelFile("2022 kitap sayımı günl.xlsx") as xls:
-            df1 = pd.read_excel(xls, "TÜRK EDEBİYATINDA ROMAN")
-            df2 = pd.read_excel(xls, "DÜNYA EDEBİYATINDA ROMAN")
-            df3 = pd.read_excel(xls, "HİKAYE")
-            df4 = pd.read_excel(xls, "ŞİİR")
-            df5 = pd.read_excel(xls, "TİYATRO")
-            df6 = pd.read_excel(xls, "DÜZ YAZI")
-            df7 = pd.read_excel(xls, "TARİH")
-            df8 = pd.read_excel(xls, "ATATÜRK KİTAPLARI")
-            df9 = pd.read_excel(xls, "İNGİLİZCE KİTAPLAR")
-            df10 = pd.read_excel(xls, "KİŞİSEL GELİŞİM")
+    elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
+        print(request.files["ImportExcel"])
+        f = request.files["ImportExcel"]
+        df1 = pd.read_excel(f, "TÜRK EDEBİYATINDA ROMAN")
+        df2 = pd.read_excel(f, "DÜNYA EDEBİYATINDA ROMAN")
+        df3 = pd.read_excel(f, "HİKAYE")
+        df4 = pd.read_excel(f, "ŞİİR")
+        df5 = pd.read_excel(f, "TİYATRO")
+        df6 = pd.read_excel(f, "DÜZ YAZI")
+        df7 = pd.read_excel(f, "TARİH")
+        df8 = pd.read_excel(f, "ATATÜRK KİTAPLARI")
+        df9 = pd.read_excel(f, "İNGİLİZCE KİTAPLAR")
+        df10 = pd.read_excel(f, "KİŞİSEL GELİŞİM")
 
-        sheets = [df1, df2, df3, df4, df5, df6, df7, df8, df9, df10]
+        sheets = (df1, df2, df3, df4, df5, df6, df7, df8, df9, df10)
+        categories = [
+            "Türk Edebiyatında Roman",
+            "Dünya Edebiyatında Roman",
+            "Hikaye",
+            "Şiir",
+            "Tiyatro",
+            "Düz Yazı",
+            "Tarih",
+            "Atatürk Kitapları",
+            "İngilizce Kitaplar",
+            "Kişisel Gelişim",
+        ]
 
-        # Kayıt Numarası | Kitabın Adı | Kitabın Yazarı | Sayfa Sayısı | Yayınevi
-        for index, row in df1.iterrows():
-            if index == 3:
-                break
-            if (
-                str(row["Kitabın Adı"]) == "nan"
-                and str(row["Kitabın Yazarı"]) == "nan"
-                and str(row["Sayfa Sayısı"]) == "nan"
-                and str(row["Yayınevi"]) == "nan"
-            ):
-                continue
-            print(
-                index,
-                row["Kayıt Numarası"],
-                row["Kitabın Adı"],
-                row["Kitabın Yazarı"],
-                row["Sayfa Sayısı"],
-                row["Yayınevi"],
-            )
-        """
+        # Kayıt Numarası | Kitabın Adı | Kitabın Yazarı | Sayfa Sayısı | Yayınevi  column names
+        for i in range(len(sheets)):
+            for index, row in sheets[i].iterrows():
+                if (
+                    str(row[sheets[i].columns.to_list()[1]]) == "nan"
+                    and str(row[sheets[i].columns.to_list()[2]]) == "nan"
+                    and str(row[sheets[i].columns.to_list()[3]]) == "nan"
+                    and str(row[sheets[i].columns.to_list()[4]]) == "nan"
+                ):
+                    continue
+                newBook = books(
+                    bookNo=row[sheets[i].columns.to_list()[0]],
+                    bookName=row[sheets[i].columns.to_list()[1]],
+                    writer=row[sheets[i].columns.to_list()[2]],
+                    page=row[sheets[i].columns.to_list()[3]],
+                    publisher=row[sheets[i].columns.to_list()[4]],
+                    category=categories[i],
+                )
+
+                db.session.add(newBook)
+                db.session.commit()
+
     return render_template("addBook.html")
 
 
