@@ -54,7 +54,7 @@ def addBookPage():
                 bookCode=request.form["bookCode"],
                 bookName=request.form["bookName"],
                 writer=request.form["writer"],
-                page=request.form["page"],
+                page=request.form["page"] + ".0",
                 publisher=request.form["publisher"],
                 category=request.form["category"],
             ).first()
@@ -64,7 +64,7 @@ def addBookPage():
                     bookCode=request.form["bookCode"],
                     bookName=request.form["bookName"],
                     writer=request.form["writer"],
-                    page=request.form["page"],
+                    page=request.form["page"].split(".")[0],
                     publisher=request.form["publisher"],
                     category=request.form["category"],
                 )
@@ -123,6 +123,7 @@ def addBookPage():
                     category=categories[i],
                 ).first()
 
+                print(res)
                 if res == None:
                     newBook = books(
                         bookCode=row[sheets[i].columns.to_list()[0]],
