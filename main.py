@@ -23,7 +23,7 @@ class user(db.Model):
 
 class books(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    bookNo = db.Column(db.String(100), nullable=True)
+    bookCode = db.Column(db.String(100), nullable=True)
     bookName = db.Column(db.String(100), nullable=True)
     writer = db.Column(db.String(100), nullable=True)
     page = db.Column(db.String(10), nullable=True)
@@ -39,17 +39,36 @@ def indexPage():
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
     if request.method == "POST" and request.form["btn"] == "Listeye Ekle":
-        newBook = books(
-            bookNo="1",
-            bookName="Asd",
-            writer="asd",
-            page=10,
-            publisher="asd",
-            category="ŞİİR",
-        )
+        res = books.query.filter_by(
+            bookCode=request.form["bookCode"],
+            bookName=request.form["bookName"],
+            writer=request.form["writer"],
+            page=request.form["page"],
+            publisher=request.form["publisher"],
+            category=request.form["category"],
+        ).first()
+        res2 = books.query.filter_by(
+            bookCode="100001",
+            bookName="Huzur",
+            writer=request.form["writer"],
+            page=request.form["page"],
+            publisher=request.form["publisher"],
+            category=request.form["category"],
+        ).first()
 
-        db.session.add(newBook)
-        db.session.commit()
+        if res == None:
+            newBook = books(
+                bookCode=request.form["bookCode"],
+                bookName=request.form["bookName"],
+                writer=request.form["writer"],
+                page=request.form["page"],
+                publisher=request.form["publisher"],
+                category=request.form["category"],
+            )
+
+            db.session.add(newBook)
+            db.session.commit()
+            flash("Kitap Başarı ile Eklendi")
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
         print(request.files["ImportExcel"])
@@ -90,7 +109,7 @@ def addBookPage():
                 ):
                     continue
                 newBook = books(
-                    bookNo=row[sheets[i].columns.to_list()[0]],
+                    bookCode=row[sheets[i].columns.to_list()[0]],
                     bookName=row[sheets[i].columns.to_list()[1]],
                     writer=row[sheets[i].columns.to_list()[2]],
                     page=row[sheets[i].columns.to_list()[3]],

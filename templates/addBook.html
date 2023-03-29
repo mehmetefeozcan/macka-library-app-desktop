@@ -23,6 +23,16 @@
   <body
     class="flex justify-center items-center text-center md:flex-row flex-col"
   >
+    {% for message in get_flashed_messages() %}
+    <div
+      class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
+      role="alert"
+    >
+      <span class="sr-only">Info</span>
+      <div>{{message}}</div>
+    </div>
+    {% endfor %}
+
     <div
       class="flex justify-center items-center text-center md:w-[50%] w-full h-full mt-[10%]"
     >
@@ -44,19 +54,35 @@
               </p>
               <select
                 class="w-[100%] rounded-full pl-[2%] mt-[2%] pr-[3%] flex text-center"
+                name="category"
               >
                 <option value="default" selected>Tür Seç</option>
-                <option value="Turkish_novel">Türk Edebiyatında Roman</option>
-                <option value="world_novel">Dünya Edebiyatında Roman</option>
-                <option value="story">Hikaye</option>
-                <option value="poem">Şiir</option>
-                <option value="theatre">Tiyatro</option>
-                <option value="prose">Düzyazı</option>
-                <option value="historical">Tarih</option>
-                <option value="Ataturks_books">Atatürk Kitapları</option>
-                <option value="english_books">İngilizce Kitaplar</option>
-                <option value="self_improvement">Kişisel Gelişim</option>
+                <option value="Türk Edebiyatında Roman">
+                  Türk Edebiyatında Roman
+                </option>
+                <option value="Dünya Edebiyatında Roman">
+                  Dünya Edebiyatında Roman
+                </option>
+                <option value="Hikaye">Hikaye</option>
+                <option value="Şiir">Şiir</option>
+                <option value="Tiyatro">Tiyatro</option>
+                <option value="Düzyazı">Düzyazı</option>
+                <option value="Tarih">Tarih</option>
+                <option value="Atatürk Kitapları">Atatürk Kitapları</option>
+                <option value="İngilizce Kitaplar">İngilizce Kitaplar</option>
+                <option value="Kişisel Gelişim">Kişisel Gelişim</option>
               </select>
+            </article>
+            <article class="pb-[7%]">
+              <p class="text-white antialiased text-2xl font-serif italic">
+                Kitap Kodu:
+              </p>
+              <input
+                id="book-code"
+                class="w-[90%] rounded-full pl-[5%] pr-[5%] mt-[2%] text-center"
+                type="text"
+                name="bookCode"
+              />
             </article>
             <article class="pb-[7%]">
               <p class="text-white antialiased text-2xl font-serif italic">
@@ -66,6 +92,7 @@
                 id="book-name"
                 class="w-[90%] rounded-full pl-[5%] pr-[5%] mt-[2%] text-center"
                 type="text"
+                name="bookName"
               />
             </article>
             <article class="pb-[7%]">
@@ -75,6 +102,7 @@
               <input
                 class="w-[90%] rounded-full pl-[5%] pr-[5%] mt-[2%] text-center"
                 type="text"
+                name="writer"
               />
             </article>
             <article class="pb-[7%]">
@@ -86,6 +114,7 @@
               <input
                 class="text-center w-[90%] rounded-full pl-[5%] pr-[5%] mt-[2%]"
                 type="number"
+                name="page"
               />
             </article>
             <article class="pb-[10%]">
@@ -95,6 +124,7 @@
               <input
                 class="w-[90%] rounded-full pl-[5%] pr-[5%] mt-[2%] text-center"
                 type="text"
+                name="publisher"
               />
             </article>
             <article>
