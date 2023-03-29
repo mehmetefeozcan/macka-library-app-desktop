@@ -40,30 +40,40 @@ def indexPage():
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
     if request.method == "POST" and request.form["btn"] == "Listeye Ekle":
-        res = books.query.filter_by(
-            bookCode=request.form["bookCode"],
-            bookName=request.form["bookName"],
-            writer=request.form["writer"],
-            page=request.form["page"],
-            publisher=request.form["publisher"],
-            category=request.form["category"],
-        ).first()
-
-        if res == None:
-            newBook = books(
+        if (
+            request.form["bookCode"] == ""
+            or request.form["bookName"] == ""
+            or request.form["writer"] == ""
+            or request.form["page"] == ""
+            or request.form["publisher"] == ""
+            or request.form["category"] == ""
+        ):
+            flash("Lütfen alanları doldurunuz")
+        else:
+            res = books.query.filter_by(
                 bookCode=request.form["bookCode"],
                 bookName=request.form["bookName"],
                 writer=request.form["writer"],
                 page=request.form["page"],
                 publisher=request.form["publisher"],
                 category=request.form["category"],
-            )
+            ).first()
 
-            db.session.add(newBook)
-            db.session.commit()
-            flash("Kitap Başarı ile Eklendi")
-        else:
-            flash("Lütfen Tekrar Deneyiniz.")
+            if res == None:
+                newBook = books(
+                    bookCode=request.form["bookCode"],
+                    bookName=request.form["bookName"],
+                    writer=request.form["writer"],
+                    page=request.form["page"],
+                    publisher=request.form["publisher"],
+                    category=request.form["category"],
+                )
+
+                db.session.add(newBook)
+                db.session.commit()
+                flash("Kitap Başarı ile Eklendi")
+            else:
+                flash("Aynı Bilgilerde Kitap Bulundu.")
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
         print(request.files["ImportExcel"])
@@ -103,17 +113,28 @@ def addBookPage():
                     and str(row[sheets[i].columns.to_list()[4]]) == "nan"
                 ):
                     continue
-                newBook = books(
-                    bookCode=row[sheets[i].columns.to_list()[0]],
-                    bookName=row[sheets[i].columns.to_list()[1]],
-                    writer=row[sheets[i].columns.to_list()[2]],
-                    page=row[sheets[i].columns.to_list()[3]],
-                    publisher=row[sheets[i].columns.to_list()[4]],
-                    category=categories[i],
-                )
 
-                db.session.add(newBook)
-                db.session.commit()
+                res = books.query.filter_by(
+                    bookCode=sheets[i].columns.to_list()[0],
+                    bookName=sheets[i].columns.to_list()[1],
+                    writer=sheets[i].columns.to_list()[2],
+                    page=sheets[i].columns.to_list()[3],
+                    publisher=sheets[i].columns.to_list()[4],
+                    category=categories[i],
+                ).first()
+
+                if res == None:
+                    newBook = books(
+                        bookCode=row[sheets[i].columns.to_list()[0]],
+                        bookName=row[sheets[i].columns.to_list()[1]],
+                        writer=row[sheets[i].columns.to_list()[2]],
+                        page=row[sheets[i].columns.to_list()[3]],
+                        publisher=row[sheets[i].columns.to_list()[4]],
+                        category=categories[i],
+                    )
+
+                    db.session.add(newBook)
+                    db.session.commit()
 
     return render_template("addBook.html")
 
