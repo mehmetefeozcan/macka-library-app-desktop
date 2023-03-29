@@ -2,6 +2,7 @@ from flask import *
 from flaskwebgui import FlaskUI
 from flask_sqlalchemy import *
 import pandas as pd
+import time, threading
 
 # flask instance
 app = Flask(__name__)
@@ -47,14 +48,6 @@ def addBookPage():
             publisher=request.form["publisher"],
             category=request.form["category"],
         ).first()
-        res2 = books.query.filter_by(
-            bookCode="100001",
-            bookName="Huzur",
-            writer=request.form["writer"],
-            page=request.form["page"],
-            publisher=request.form["publisher"],
-            category=request.form["category"],
-        ).first()
 
         if res == None:
             newBook = books(
@@ -69,6 +62,8 @@ def addBookPage():
             db.session.add(newBook)
             db.session.commit()
             flash("Kitap Başarı ile Eklendi")
+        else:
+            flash("Lütfen Tekrar Deneyiniz.")
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
         print(request.files["ImportExcel"])
