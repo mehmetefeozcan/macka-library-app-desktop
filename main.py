@@ -52,11 +52,6 @@ def addBookPage():
         else:
             res = books.query.filter_by(
                 bookCode=request.form["bookCode"],
-                bookName=request.form["bookName"],
-                writer=request.form["writer"],
-                page=request.form["page"] + ".0",
-                publisher=request.form["publisher"],
-                category=request.form["category"],
             ).first()
 
             if res == None:
@@ -76,7 +71,6 @@ def addBookPage():
                 flash("Aynı Bilgilerde Kitap Bulundu.")
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
-        print(request.files["ImportExcel"])
         f = request.files["ImportExcel"]
         df1 = pd.read_excel(f, "TÜRK EDEBİYATINDA ROMAN")
         df2 = pd.read_excel(f, "DÜNYA EDEBİYATINDA ROMAN")
@@ -116,13 +110,7 @@ def addBookPage():
 
                 res = books.query.filter_by(
                     bookCode=sheets[i].columns.to_list()[0],
-                    bookName=sheets[i].columns.to_list()[1],
-                    writer=sheets[i].columns.to_list()[2],
-                    page=sheets[i].columns.to_list()[3],
-                    publisher=sheets[i].columns.to_list()[4],
-                    category=categories[i],
                 ).first()
-
                 print(res)
                 if res == None:
                     newBook = books(
@@ -136,6 +124,8 @@ def addBookPage():
 
                     db.session.add(newBook)
                     db.session.commit()
+                else:
+                    flash("Aynı Bilgilerde Kitap Bulundu.")
 
     return render_template("addBook.html")
 
