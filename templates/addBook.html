@@ -25,16 +25,19 @@
   >
     {% for message in get_flashed_messages() %}
     <div
-      class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800"
+      class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 absolute"
+      id="pop_up"
       role="alert"
     >
       <span class="sr-only">Info</span>
       <div>{{message}}</div>
     </div>
+
     {% endfor %}
 
     <div
       class="flex justify-center items-center text-center md:w-[50%] w-full h-full mt-[10%]"
+      id="add_book"
     >
       <div
         class="w-[90%] bg-green-300 flex justify-center items-center text-center rounded-[100px] md:pt-[5%] pt-[10%] pb-[5%] flex-col"
@@ -53,7 +56,7 @@
                 Tür Seç:
               </p>
               <select
-                class="w-auto m-m:min-w-[80%] max-w-[90%] rounded-full  text-center"
+                class="w-auto m-m:min-w-[80%] max-w-[90%] rounded-full text-center"
                 name="category"
               >
                 <option value="default" selected>Tür Seç</option>
@@ -79,7 +82,7 @@
               </p>
               <input
                 id="book-code"
-                class="w-auto m-m:min-w-[70%] max-w-[80%] rounded-full  text-center"
+                class="w-auto m-m:min-w-[70%] max-w-[80%] rounded-full text-center"
                 type="text"
                 name="bookCode"
               />
@@ -100,7 +103,7 @@
                 Yazar:
               </p>
               <input
-                class="w-auto m-m:min-w-[50%] max-w-[80%] rounded-full  text-center"
+                class="w-auto m-m:min-w-[50%] max-w-[80%] rounded-full text-center"
                 type="text"
                 name="writer"
               />
@@ -158,3 +161,8 @@
     </div>
   </body>
 </html>
+
+<script>
+  document.getElementById("add_book").style.opacity = "0.5";
+  document.getElementById("pop_up").style.opacity = "1";
+</script>
