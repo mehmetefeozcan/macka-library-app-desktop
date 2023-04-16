@@ -39,7 +39,7 @@ def indexPage():
 
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
-    if request.method == "POST" and request.form["btn"] == "Listeye Ekle":
+    if request.method == "POST" and request.form["btn"] == "Kitabı Ekle":
         if (
             request.form["bookCode"] == ""
             or request.form["bookName"] == ""
