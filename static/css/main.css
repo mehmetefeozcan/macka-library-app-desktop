@@ -810,6 +810,10 @@ video {
   border-radius: 0.5rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -877,6 +881,18 @@ video {
 
 .p-\[3\%\] {
   padding: 3%;
+}
+
+.p-40 {
+  padding: 10rem;
+}
+
+.p-20 {
+  padding: 5rem;
+}
+
+.p-16 {
+  padding: 4rem;
 }
 
 .px-0 {
@@ -1015,6 +1031,11 @@ video {
   line-height: 1.25rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-\[550\] {
   font-weight: 550;
 }
@@ -1052,6 +1073,10 @@ video {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 @media (prefers-color-scheme: dark) {

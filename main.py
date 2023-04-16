@@ -48,7 +48,7 @@ def addBookPage():
             or request.form["publisher"] == ""
             or request.form["category"] == ""
         ):
-            flash("Lütfen alanları doldurunuz")
+            flash("Lütfen tüm alanları doldurunuz !")
         else:
             res = books.query.filter_by(
                 bookCode=request.form["bookCode"],
@@ -69,6 +69,7 @@ def addBookPage():
                 flash("Kitap Başarı ile Eklendi")
             else:
                 flash("Aynı Bilgilerde Kitap Bulundu.")
+
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
         f = request.files["ImportExcel"]
@@ -159,3 +160,10 @@ def greet():
 
 if __name__ == "__main__":
     ui.run()
+
+
+
+@app.route("/add", methods=["POST", "GET"])
+def opacity(div_id):
+    div_id.style.opacity = "1"
+    return render_template("addBook.html")

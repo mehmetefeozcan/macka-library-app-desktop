@@ -25,8 +25,7 @@
   >
     {% for message in get_flashed_messages() %}
     <div
-      class="m-4 flex p-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 absolute"
-      id="pop_up"
+      class="flex p-16 text-2xl text-yellow-800 border border-yellow-300 rounded-2xl bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 absolute"
       role="alert"
     >
       <span class="sr-only">Info</span>
@@ -37,7 +36,6 @@
 
     <div
       class="flex justify-center items-center text-center md:w-[50%] w-full h-full mt-[10%]"
-      id="add_book"
     >
       <div
         class="w-[90%] bg-green-300 flex justify-center items-center text-center rounded-[100px] md:pt-[5%] pt-[10%] pb-[5%] flex-col"
@@ -98,7 +96,7 @@
                 name="bookName"
               />
             </article>
-            <article class="pb-[7%]">
+            <article class="pb-[7%]" id="add">
               <p class="text-white antialiased text-2xl font-serif italic">
                 Yazar:
               </p>
@@ -138,6 +136,7 @@
                 name="btn"
               />
             </article>
+
             <article class="mt-4 mb-4 ml-24">
               <input
                 type="file"
@@ -161,8 +160,3 @@
     </div>
   </body>
 </html>
-
-<script>
-  document.getElementById("add_book").style.opacity = "0.5";
-  document.getElementById("pop_up").style.opacity = "1";
-</script>
