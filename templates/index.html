@@ -69,6 +69,8 @@
     <!-- General Custom CSS -->
     <link rel="stylesheet" href="../static/css/style.css" />
 
+    <!-- Dropdown -->
+
     <!-- Head Libs -->
     <script src="../static/js/modernizr.min.js"></script>
   </head>
@@ -105,20 +107,48 @@
                     >
                       <nav class="collapse">
                         <ul class="nav nav-pills" id="mainNav">
-                          <!-- Dropdown -->
-                          <li>
-                            <a class="nav-link" href=""> Kategoriler </a>
-                          </li>
                           <li>
                             <a class="nav-link" href="#about-us">
                               Hakkımızda
                             </a>
                           </li>
+
                           <li>
                             <a class="nav-link" href="#blog"> Blog </a>
                           </li>
                           <li>
                             <a class="nav-link" href="#footer"> Contact </a>
+                          </li>
+
+                          <li>
+                            <a class="nav-link">
+                              <form action="#">
+                                <select
+                                  name="cars"
+                                  id="cars"
+                                  style="border: 0 transparent; width: 115px"
+                                >
+                                  <option disabled selected value="categories">
+                                    Kategoriler
+                                  </option>
+                                  <option value="Tümü">Tümü</option>
+                                  <option value="Türk Edebiyatında Roman">
+                                    Türk Edebiyatında Roman
+                                  </option>
+                                  <option value="Dünya Edebiyatında Roman">
+                                    Dünya Edebiyatında Roman
+                                  </option>
+                                  <option value="Hikaye">Hikaye</option>
+                                  <option value="Şiir">Şiir</option>
+                                  <option value="Tiyatro">Tiyatro</option>
+                                  <option value="Düzyazı">Düzyazı</option>
+                                  <option value="Tarih">Tarih</option>
+                                  <option value="Atatürk Kitapları">Atatürk Kitapları</option>
+                                  <option value="İngilizce Kitaplar">İngilizce Kitaplar</option>
+                                  <option value="Kişisel Gelişim">Kişisel Gelişim</option>
+                                </select>
+                              </form>
+                            </a>
                           </li>
 
                           <li class="d-lg-none">
