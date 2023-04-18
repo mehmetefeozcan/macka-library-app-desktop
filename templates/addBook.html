@@ -8,13 +8,10 @@
     <!-- Favicon -->
     <link
       rel="shortcut icon"
-      href="../static/img/restaurant/apple-touch-icon.png"
+      href="../static/img/school-logo.jpeg"
       type="image/x-icon"
     />
-    <link
-      rel="apple-touch-icon"
-      href="../static/img/restaurant/apple-touch-icon.png"
-    />
+    <link rel="school-logo" href="../static/img/school-logo.jpeg" />
     <link
       href="{{url_for('static',filename='css/main.css')}}"
       rel="stylesheet"
@@ -23,7 +20,7 @@
   <body class="flex justify-center items-center text-center flex-col">
     {% for message in get_flashed_messages() %}
     <div
-      class="flex p-16 text-2xl text-yellow-800 border border-yellow-300 rounded-2xl bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 mt-[3%] "
+      class="flex p-16 text-2xl text-yellow-800 border border-yellow-300 rounded-2xl bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 mt-[3%]"
       role="alert"
     >
       <span class="sr-only">Info</span>

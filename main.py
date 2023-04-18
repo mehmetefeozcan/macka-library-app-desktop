@@ -131,6 +131,14 @@ def addBookPage():
     return render_template("addBook.html")
 
 
+
+@app.route("/books")
+def booksPage():
+    if request.method == "POST":
+        return redirect("/books")
+    return render_template("books.html")
+
+
 @app.route("/", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
