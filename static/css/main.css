@@ -770,6 +770,10 @@ video {
   height: 100%;
 }
 
+.h-\[30px\] {
+  height: 30px;
+}
+
 .w-\[55\%\] {
   width: 55%;
 }
@@ -796,6 +800,10 @@ video {
 
 .w-\[70\%\] {
   width: 70%;
+}
+
+.w-\[30px\] {
+  width: 30px;
 }
 
 .min-w-\[30\%\] {
@@ -860,6 +868,10 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-none {
+  border-radius: 0px;
 }
 
 .border {
