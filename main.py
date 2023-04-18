@@ -135,7 +135,7 @@ def addBookPage():
 def greet():
     if request.method == "POST":
         if request.form["username"] == "" or request.form["password"] == "":
-            flash("Lütfen alanları doldurunuz")
+            flash("Lütfen tüm alanları doldurunuz")
 
             print("if")
         else:
