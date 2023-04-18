@@ -15,6 +15,7 @@ ui = FlaskUI(app=app, server="flask")
 # add db
 db = SQLAlchemy(app)
 
+app.debug = True
 
 class user(db.Model):
     id = db.Column(db.Integer, primary_key=True)
