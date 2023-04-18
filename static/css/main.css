@@ -762,6 +762,14 @@ video {
   margin-left: 30%;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.ml-16 {
+  margin-left: 4rem;
+}
+
 .flex {
   display: flex;
 }
@@ -1061,6 +1069,14 @@ video {
 
 .pl-\[30\%\] {
   padding-left: 30%;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pl-16 {
+  padding-left: 4rem;
 }
 
 .text-center {
