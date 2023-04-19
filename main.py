@@ -2,7 +2,7 @@ from flask import *
 from flaskwebgui import FlaskUI
 from flask_sqlalchemy import *
 import pandas as pd
-import time, threading
+
 
 # flask instance
 app = Flask(__name__)
@@ -15,7 +15,8 @@ ui = FlaskUI(app=app, server="flask")
 # add db
 db = SQLAlchemy(app)
 
-app.debug = True
+selectedCategory = ""
+
 
 class user(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,9 +34,18 @@ class books(db.Model):
     category = db.Column(db.String(100), nullable=True)
 
 
-@app.route("/home")
+@app.route("/home", methods=["POST", "GET"])
 def indexPage():
+    if request.method == "POST":
+        selectedCategory = request.form["category"]
+        print(selectedCategory)
+        return render_template("books.html", category=selectedCategory)
     return render_template("index.html")
+
+
+@app.route("/books")
+def booksPage():
+    return render_template("books.html")
 
 
 @app.route("/add", methods=["POST", "GET"])
@@ -70,7 +80,6 @@ def addBookPage():
                 flash("Kitap Başarı ile Eklendi")
             else:
                 flash("Aynı Bilgilerde Kitap Bulundu.")
-
 
     elif request.method == "POST" and request.form["btn"] == "Exceli Ekle":
         f = request.files["ImportExcel"]
@@ -132,14 +141,6 @@ def addBookPage():
     return render_template("addBook.html")
 
 
-
-@app.route("/books")
-def booksPage():
-    if request.method == "POST":
-        return redirect("/books")
-    return render_template("books.html")
-
-
 @app.route("/", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
@@ -169,7 +170,6 @@ def greet():
 
 if __name__ == "__main__":
     ui.run()
-
 
 
 @app.route("/add", methods=["POST", "GET"])

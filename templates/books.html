@@ -82,6 +82,7 @@
         text-align: center;
       "
     >
+      {% block category %}
       <h1
         style="
           color: #bc9b63;
@@ -89,8 +90,9 @@
           margin: 0;
         "
       >
-        {TÜR ADI}
+        {{ category }}
       </h1>
+      {% endblock %}
       <hr style="color: #bc9b63; border: solid 1px" />
     </div>
 
@@ -205,7 +207,7 @@
           </div>
         </article>
 
-        <article style="width: 60%; margin-right: 50px ;">
+        <article style="width: 60%; margin-right: 50px">
           <div>
             <h4 style="word-break: break-all">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam,
