@@ -131,10 +131,10 @@ def addBookPage():
                 print(res)
                 if res == None:
                     newBook = books(
-                        bookCode=row[sheets[i].columns.to_list()[0]],
+                        bookCode=str(row[sheets[i].columns.to_list()[0]]).split(".")[0],
                         bookName=row[sheets[i].columns.to_list()[1]],
                         writer=row[sheets[i].columns.to_list()[2]],
-                        page=row[sheets[i].columns.to_list()[3]],
+                        page=str(row[sheets[i].columns.to_list()[3]]).split(".")[0],
                         publisher=row[sheets[i].columns.to_list()[4]],
                         category=categories[i],
                     )
