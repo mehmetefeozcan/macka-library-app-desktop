@@ -1056,6 +1056,14 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bg-blend-hard-light {
+  background-blend-mode: hard-light;
+}
+
+.mix-blend-hard-light {
+  mix-blend-mode: hard-light;
+}
+
 @media (prefers-color-scheme: dark) {
   .dark\:border-yellow-800 {
     --tw-border-opacity: 1;
