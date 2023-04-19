@@ -38,8 +38,14 @@ class books(db.Model):
 def indexPage():
     if request.method == "POST":
         selectedCategory = request.form["category"]
-        print(selectedCategory)
-        return render_template("books.html", category=selectedCategory)
+        if selectedCategory == "Tümü":
+            response = books.query.all()
+        else:
+            response = books.query.filter_by(
+                category=selectedCategory,
+            ).all()
+
+        return render_template("books.html", category=selectedCategory, books=response)
     return render_template("index.html")
 
 

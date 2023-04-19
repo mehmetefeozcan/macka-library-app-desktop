@@ -183,6 +183,7 @@
       </div>
 
       <!-- books -->
+      {% for book in books %}
       <div
         style="
           width: 90%;
@@ -197,45 +198,41 @@
       >
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">Türk Edebiyatında Roman</h4>
+            <h4 style="word-break: break-all">{{book.category}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">4895t9834wty4w805t4</h4>
+            <h4 style="word-break: break-all">{{book.bookCode}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam,
-              consequatur.
-            </h4>
+            <h4 style="word-break: break-all">{{book.bookName}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">Lorem ipsum dolor sit amet.</h4>
+            <h4 style="word-break: break-all">{{book.writer}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">10000</h4>
+            <h4 style="word-break: break-all">{{book.page}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 20px">
           <div>
-            <h4 style="word-break: break-all">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis.
-            </h4>
+            <h4 style="word-break: break-all">{{book.publisher}}</h4>
           </div>
         </article>
       </div>
+      {% endfor %}
     </main>
   </body>
 </html>
