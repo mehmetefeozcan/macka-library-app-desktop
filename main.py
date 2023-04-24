@@ -143,7 +143,8 @@ def addBookPage():
                     db.session.commit()
                 else:
                     flash("Aynı Bilgilerde Kitap Bulundu.")
-
+    elif request.method == "POST" and request.form["btn"] == "geri":
+        return redirect("/home")
     return render_template("addBook.html")
 
 
