@@ -54,6 +54,11 @@ def booksPage():
     return render_template("books.html")
 
 
+@app.route("/add-member")
+def memberPage():
+    return render_template("addMember.html")
+
+
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
     if request.method == "POST" and request.form["btn"] == "Kitabı Ekle":
