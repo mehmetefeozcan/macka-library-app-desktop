@@ -54,6 +54,10 @@ def booksPage():
     return render_template("books.html")
 
 
+@app.route("/given-books")
+def givenBooksPage():
+    return render_template("givenBooks.html")
+
 @app.route("/add-member")
 def memberPage():
     return render_template("addMember.html")
