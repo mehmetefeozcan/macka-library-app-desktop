@@ -79,85 +79,113 @@
         ><- Anasayfa</a
       >
     </div>
-
-    <div class="container py-5 my-5" id="books">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-10 text-center">
-          <h3
-            class="text-color-dark text-transform-none text-9 line-height-3 font-weight-medium mb-4"
-          >
-            Üye Ekle
-          </h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <section>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Adı:
-            </h4>
-            <hr class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4" />
-            <div class="member-div">
-              <input class="member-inp" type="text" name="memberName" id="" />
-            </div>
-          </section>
-
-          <section style="margin-top: 30px">
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Sınıfı:
-            </h4>
-            <hr class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4" />
-            <div class="member-div">
-              <input class="member-inp" type="text" name="memberName" id="" />
-            </div>
-          </section>
-        </div>
-
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <section>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Soyadı:
-            </h4>
-            <hr class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4" />
-            <div class="member-div">
-              <input class="member-inp" type="text" name="memberName" id="" />
-            </div>
-          </section>
-
-          <section style="margin-top: 30px">
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Numarası:
-            </h4>
-            <hr class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4" />
-            <div class="member-div">
-              <input class="member-inp" type="number" name="memberName" id="" />
-            </div>
-          </section>
-        </div>
-      </div>
-      <div class="row pt-2" style="margin-top: 60px">
-        <div class="col text-center">
-          <a
-            href=""
-            class="btn btn-dark custom-btn-style-1 font-weight-medium text-3 btn-px-5 py-3"
-            ><span>Üye Ekle</span></a
-          >
-        </div>
-      </div>
+    {% for message in get_flashed_messages() %}
+    <div
+      class="flex p-8 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 mt-4"
+      role="alert"
+    >
+      <span class="sr-only">Info</span>
+      <div><span class="font-medium">Uyarı!</span> {{message}}</div>
     </div>
+    {% endfor %}
+    <form action="" method="post">
+      <div class="container py-5 my-5" id="books">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-10 text-center">
+            <h3
+              class="text-color-dark text-transform-none text-9 line-height-3 font-weight-medium mb-4"
+            >
+              Üye Ekle
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <section>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Adı:
+              </h4>
+              <hr
+                class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4"
+              />
+              <div class="member-div">
+                <input class="member-inp" type="text" name="memberName" id="" />
+              </div>
+            </section>
 
+            <section style="margin-top: 30px">
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Sınıfı:
+              </h4>
+              <hr
+                class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4"
+              />
+              <div class="member-div">
+                <input class="member-inp" type="text" name="classroom" id="" />
+              </div>
+            </section>
+          </div>
+
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <section>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Soyadı:
+              </h4>
+              <hr
+                class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4"
+              />
+              <div class="member-div">
+                <input
+                  class="member-inp"
+                  type="text"
+                  name="memberSurname"
+                  id=""
+                />
+              </div>
+            </section>
+
+            <section style="margin-top: 30px">
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Numarası:
+              </h4>
+              <hr
+                class="custom-divider-size-1 bg-color-grey-scale-2 mt-2 mb-4"
+              />
+              <div class="member-div">
+                <input
+                  class="member-inp"
+                  type="number"
+                  name="memberNumber"
+                  id=""
+                />
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="row pt-2" style="margin-top: 60px">
+          <div class="col text-center">
+            <input
+              type="submit"
+              value="Üye Ekle"
+              name="btn"
+              class="btn btn-dark custom-btn-style-1 font-weight-medium text-3 btn-px-5 py-3"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
     <hr style="border: 1px black dashed" />
 
     <div style="margin-top: 30px">
@@ -171,57 +199,108 @@
         </div>
       </div>
 
-      <div>
-        <ul class="members-titles">
-          <li>Adı</li>
-          <li>Soyadı</li>
-          <li>Sınıfı</li>
-          <li class="members-endItem">Numarası</li>
-        </ul>
+      <main style="display: flex; flex-direction: column; margin-bottom: 50px">
+        <div
+          style="
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;
+            display: flex;
+            flex-direction: row;
+          "
+        >
+          <article style="width: 100%">
+            <div>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Ad
+              </h4>
+              <hr style="color: #bc9b63; border: solid 1px" />
+            </div>
+          </article>
 
-        <hr style="border: 1px #b79c6b dotted" />
-      </div>
+          <article style="width: 100%">
+            <div>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Soyad
+              </h4>
+              <hr style="color: #bc9b63; border: solid 1px" />
+            </div>
+          </article>
 
-      <div>
-        <ul class="members-list">
-          <li>xxxxxx</li>
-          <li>xxxxxxxxx</li>
-          <li>11-A ATP</li>
-          <li class="members-endItem">xxxx</li>
-        </ul>
+          <article style="width: 100%">
+            <div>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Sınıf
+              </h4>
+              <hr style="color: #bc9b63; border: solid 1px" />
+            </div>
+          </article>
 
-        <hr class="members-hr" />
-      </div>
+          <article style="width: 100%">
+            <div>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Numara
+              </h4>
+              <hr style="color: #bc9b63; border: solid 1px" />
+            </div>
+          </article>
+        </div>
 
-      <div>
-        <ul class="members-list">
-          <li>xxxx xx</li>
-          <li>xxxxxxxxx</li>
-          <li>11-A ATP</li>
-          <li class="members-endItem">xxxxx</li>
-        </ul>
-        <hr class="members-hr" />
-      </div>
+        <!-- books -->
+        {% for member in members %}
+        <div
+          style="
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: row;
+          "
+        >
+          <article style="width: 60%; margin-right: 50px">
+            <div>
+              <h4 style="word-break: break-all">{{member.name}}</h4>
+            </div>
+          </article>
 
-      <div>
-        <ul class="members-list">
-          <li>xxxxxxx xxx</li>
-          <li>xxxxxxxxx</li>
-          <li>11-A ATP</li>
-          <li class="members-endItem">xxxxx</li>
-        </ul>
-        <hr class="members-hr" />
-      </div>
+          <article style="width: 60%; margin-right: 50px">
+            <div>
+              <h4 style="word-break: break-all">{{member.surname}}</h4>
+            </div>
+          </article>
 
-      <div>
-        <ul class="members-list">
-          <li>xxxxx</li>
-          <li>xxxxxx</li>
-          <li>11-A ATP</li>
-          <li class="members-endItem">xxxx</li>
-        </ul>
-        <hr class="members-hr" />
-      </div>
+          <article style="width: 60%; margin-right: 50px">
+            <div>
+              <h4 style="word-break: break-all">{{member.classroom}}</h4>
+            </div>
+          </article>
+
+          <article style="width: 60%; margin-right: 50px">
+            <div>
+              <h4 style="word-break: break-all">{{member.no}}</h4>
+            </div>
+          </article>
+        </div>
+        {% endfor %}
+      </main>
     </div>
   </body>
 </html>

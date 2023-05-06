@@ -34,12 +34,39 @@ class books(db.Model):
     category = db.Column(db.String(100), nullable=True)
 
 
+class members(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    surname = db.Column(db.String(50), nullable=False)
+    classroom = db.Column(db.String(10), nullable=False)
+    no = db.Column(db.String(10), nullable=False)
+
+
+class givenBooks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(100), nullable=False)
+    bookCode = db.Column(db.String(100), nullable=False)
+    bookName = db.Column(db.String(100), nullable=False)
+    studentName = db.Column(db.String(50), nullable=False)
+    classroom = db.Column(db.String(10), nullable=False)
+    no = db.Column(db.String(10), nullable=False)
+
+
+# for the table create
+""" with app.app_context():
+    db.create_all() """
+
+
 @app.route("/home", methods=["POST", "GET"])
 def indexPage():
+    selectedCategory = ""
+
     if request.method == "POST":
         selectedCategory = request.form["category"]
         if selectedCategory == "Tümü":
             response = books.query.all()
+        elif selectedCategory == "Verilen Kitaplar":
+            return redirect("/given-books")
         else:
             response = books.query.filter_by(
                 category=selectedCategory,
@@ -58,9 +85,40 @@ def booksPage():
 def givenBooksPage():
     return render_template("givenBooks.html")
 
-@app.route("/add-member")
+
+@app.route("/add-member", methods=["POST", "GET"])
 def memberPage():
-    return render_template("addMember.html")
+    _members = members.query.all()
+
+    if request.method == "POST":
+        if (
+            request.form["memberName"] == ""
+            or request.form["classroom"] == ""
+            or request.form["memberSurname"] == ""
+            or request.form["memberNumber"] == ""
+        ):
+            flash("Lütfen tüm alanları doldurunuz !")
+        else:
+            res = members.query.filter_by(
+                name=request.form["memberName"],
+                surname=request.form["memberSurname"],
+            ).first()
+
+            if res == None:
+                newMember = members(
+                    name=request.form["memberName"],
+                    surname=request.form["memberSurname"],
+                    classroom=request.form["classroom"],
+                    no=request.form["memberNumber"],
+                )
+
+                db.session.add(newMember)
+                db.session.commit()
+
+                _members = members.query.all()
+                redirect("/add-member")
+
+    return render_template("addMember.html", members=_members)
 
 
 @app.route("/add", methods=["POST", "GET"])
@@ -152,8 +210,7 @@ def addBookPage():
                     db.session.commit()
                 else:
                     flash("Aynı Bilgilerde Kitap Bulundu.")
-    elif request.method == "POST" and request.form["btn"] == "geri":
-        return redirect("/home")
+
     return render_template("addBook.html")
 
 
@@ -186,9 +243,3 @@ def greet():
 
 if __name__ == "__main__":
     ui.run()
-
-
-@app.route("/add", methods=["POST", "GET"])
-def opacity(div_id):
-    div_id.style.opacity = "1"
-    return render_template("addBook.html")
