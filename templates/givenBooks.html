@@ -187,6 +187,7 @@
       </div>
 
       <!-- books -->
+      {% for book in givenBooks %}
 
       <div
         style="
@@ -202,40 +203,41 @@
       >
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">Roman</h4>
+            <h4 style="word-break: break-all">{{book.category}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">xxxxxxxxxxxxxxx</h4>
+            <h4 style="word-break: break-all">{{book.bookCode}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">İçimizdeki Şeytan</h4>
+            <h4 style="word-break: break-all">{{book.bookName}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">Ahmed Şenlikoğlu</h4>
+            <h4 style="word-break: break-all">{{book.studentName}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 50px">
           <div>
-            <h4 style="word-break: break-all">2050</h4>
+            <h4 style="word-break: break-all">{{book.no}}</h4>
           </div>
         </article>
 
         <article style="width: 60%; margin-right: 20px">
           <div>
-            <h4 style="word-break: break-all">11-A ATP</h4>
+            <h4 style="word-break: break-all">{{book.classroom}}</h4>
           </div>
         </article>
       </div>
+      {% endfor %}
     </main>
   </body>
 </html>
