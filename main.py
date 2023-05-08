@@ -89,7 +89,32 @@ def givenBooksPage():
 
 @app.route("/give-book", methods=["POST", "GET"])
 def giveBookPage():
-    return render_template("giveBook.html")
+    bookRes = books.query.all()
+    memberRes = members.query.all()
+
+    if request.method == "POST":
+        if request.form["member"] == "" or request.form["book"] == "":
+            flash("Lütfen tüm alanları doldurunuz !")
+        else:
+            _bookCode = request.form["book"].split("-")[0]
+            _memberNo = request.form["member"].split("-")[0]
+
+            _resbook = books.query.filter_by(bookCode=_bookCode).first()
+            _resMember = members.query.filter_by(no=_memberNo).first()
+
+            newReq = givenBooks(
+                category=_resbook.category,
+                bookCode=_resbook.bookCode,
+                bookName=_resbook.bookName,
+                studentName=str("{} {}".format(_resMember.name, _resMember.surname)),
+                classroom=_resMember.classroom,
+                no=_resMember.no,
+            )
+            
+            db.session.add(newReq)
+            db.session.commit()
+            flash("Başarıyla Eklendi !")
+    return render_template("giveBook.html", books=bookRes, members=memberRes)
 
 
 @app.route("/add-member", methods=["POST", "GET"])
