@@ -112,7 +112,7 @@ def giveBookPage():
                 no=_resMember.no,
             )
 
-            books.query.update()
+            books.query.filter(_resbook.bookCode ==_bookCode ).update({books.isGiven: True}, synchronize_session = True)
             db.session.add(newReq)
             db.session.commit()
 
