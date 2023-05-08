@@ -87,6 +87,11 @@ def givenBooksPage():
     return render_template("givenBooks.html", givenBooks=_givenBooks)
 
 
+@app.route("/give-book", methods=["POST", "GET"])
+def giveBookPage():
+    return render_template("giveBook.html")
+
+
 @app.route("/add-member", methods=["POST", "GET"])
 def memberPage():
     _members = members.query.all()
