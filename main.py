@@ -32,7 +32,7 @@ class books(db.Model):
     page = db.Column(db.String(10), nullable=True)
     publisher = db.Column(db.String(100), nullable=True)
     category = db.Column(db.String(100), nullable=True)
-    isGiven = db.Column(db.Boolean, nullable=False, default=False)
+    isGiven = db.Column(db.Boolean, default="False", nullable=False)
 
 
 class members(db.Model):
@@ -54,8 +54,9 @@ class givenBooks(db.Model):
 
 
 # for the table create
-"""with app.app_context():
-    db.create_all() """
+"""with app.app_context(): 
+    db.create_all()
+"""
 
 
 @app.route("/home", methods=["POST", "GET"])
@@ -90,7 +91,7 @@ def givenBooksPage():
 
 @app.route("/give-book", methods=["POST", "GET"])
 def giveBookPage():
-    bookRes = books.query.filter_by(isGiven=False)
+    bookRes = books.query.filter_by(isGiven=False).all()
     memberRes = members.query.all()
 
     if request.method == "POST":
@@ -102,7 +103,7 @@ def giveBookPage():
 
             _resbook = books.query.filter_by(bookCode=_bookCode).first()
             _resMember = members.query.filter_by(no=_memberNo).first()
-            print(_resbook.isGiven)
+
             newReq = givenBooks(
                 category=_resbook.category,
                 bookCode=_resbook.bookCode,
@@ -111,12 +112,14 @@ def giveBookPage():
                 classroom=_resMember.classroom,
                 no=_resMember.no,
             )
-
-            books.query.filter(_resbook.bookCode ==_bookCode ).update({books.isGiven: True}, synchronize_session = True)
+            _resbook.isGiven = True
             db.session.add(newReq)
+            db.session.flush()
             db.session.commit()
 
             flash("Başarıyla Eklendi !")
+
+            return redirect("/give-book")
     return render_template("giveBook.html", books=bookRes, members=memberRes)
 
 
