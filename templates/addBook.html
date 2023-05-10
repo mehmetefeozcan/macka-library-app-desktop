@@ -17,10 +17,12 @@
       rel="stylesheet"
     />
   </head>
-  <body class="flex justify-center items-center text-center flex-col">
+  <body
+    class="flex justify-center flex-col items-center text-center md:pt-[10%] lg:pt-[5%] pt-[35%]"
+  >
     {% for message in get_flashed_messages() %}
     <div
-      class="flex p-16 text-2xl text-yellow-800 border border-yellow-300 rounded-2xl bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 mt-[3%]"
+      class="flex p-8 text-2xl text-yellow-800 border border-yellow-300 rounded-2xl bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800 mb-[3%]"
       role="alert"
     >
       <span class="sr-only">Info</span>
@@ -30,138 +32,140 @@
     {% endfor %}
 
     <div
-      class="flex justify-center items-center text-center md:w-[50%] w-full h-full mt-[5%] mb-[10%]"
+      class="flex justify-center items-center flex-col text-center bg-[#d2a558] md:min-w-[40%] min-w-[70%] py-[7%] md:py-[3%] rounded-3xl"
     >
-      <div
-        class="w-[90%] bg-green-300 flex justify-center items-center text-center rounded-[100px] md:pt-[5%] pt-[10%] pb-[5%] flex-col"
-      >
-        <section class="pb-[3%]">
-          <p
-            class="font-[550] font-mono md:text-4xl text-3xl antialiased bg-clip-text bg-gradient-to-r to-[#BF9270] from-[#AD8B73] text-transparent"
-          >
-            Kitap Ekle
-          </p>
-          <a
-            href="/home"
-            style="
-              padding-right: 10px;
-              color: gray;
-              text-decoration: none;
-              font-size: medium;
-            "
-            ><- Anasayfa</a
-          >
-        </section>
-        <section>
-          <form action="" method="post" enctype="multipart/form-data">
-            <article class="pb-[7%]">
-              <p class="text-white antialiased text-2xl font-serif italic">
-                Tür Seç:
-              </p>
-              <select
-                class="w-auto m-m:min-w-[80%] max-w-[90%] rounded-full text-center"
-                name="category"
-              >
-                <option value="default" selected>Tür Seç</option>
-                <option value="Türk Edebiyatında Roman">
-                  Türk Edebiyatında Roman
-                </option>
-                <option value="Dünya Edebiyatında Roman">
-                  Dünya Edebiyatında Roman
-                </option>
-                <option value="Hikaye">Hikaye</option>
-                <option value="Şiir">Şiir</option>
-                <option value="Tiyatro">Tiyatro</option>
-                <option value="Düzyazı">Düzyazı</option>
-                <option value="Tarih">Tarih</option>
-                <option value="Atatürk Kitapları">Atatürk Kitapları</option>
-                <option value="İngilizce Kitaplar">İngilizce Kitaplar</option>
-                <option value="Kişisel Gelişim">Kişisel Gelişim</option>
-              </select>
-            </article>
-            <article class="pb-[7%]">
-              <p class="text-white antialiased text-2xl font-serif italic">
-                Kitap Kodu:
-              </p>
+      <section class="pb-[3%]">
+        <p class="text-4xl antialiased font-dancing-scripts mb-[15%]">
+          Kitap Ekle
+        </p>
+
+        <a
+          href="/home"
+          class="pr-[10px] font-dancing-scripts no-underline text-white"
+          ><- Anasayfa</a
+        >
+      </section>
+      <section>
+        <form action="" method="post" enctype="multipart/form-data">
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Tür Seç:
+            </p>
+            <select class="rounded-lg px-2" name="category">
+              <option value="default" selected>Tür Seç</option>
+              <option value="Türk Edebiyatında Roman">
+                Türk Edebiyatında Roman
+              </option>
+              <option value="Dünya Edebiyatında Roman">
+                Dünya Edebiyatında Roman
+              </option>
+              <option value="Hikaye">Hikaye</option>
+              <option value="Şiir">Şiir</option>
+              <option value="Tiyatro">Tiyatro</option>
+              <option value="Düzyazı">Düzyazı</option>
+              <option value="Tarih">Tarih</option>
+              <option value="Atatürk Kitapları">Atatürk Kitapları</option>
+              <option value="İngilizce Kitaplar">İngilizce Kitaplar</option>
+              <option value="Kişisel Gelişim">Kişisel Gelişim</option>
+            </select>
+          </article>
+
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Kitap Kodu:
+            </p>
+
+            <input
+              class="rounded-lg px-2"
+              id="book-code"
+              type="text"
+              name="bookCode"
+            />
+          </article>
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Kitap Adı:
+            </p>
+
+            <input
+              class="rounded-lg px-2"
+              id="book-name"
+              type="text"
+              name="bookName"
+            />
+          </article>
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Yazar:
+            </p>
+
+            <input class="rounded-lg px-2" type="text" name="writer" />
+          </article>
+
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Syf Sayısı:
+            </p>
+
+            <input class="rounded-lg px-2" type="number" name="page" />
+          </article>
+
+          <article class="pb-[7%]">
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Yayınevi:
+            </p>
+
+            <input class="rounded-lg px-2" type="text" name="publisher" />
+          </article>
+
+          <article>
+            <div class="mt-[10%] flex justify-center items-center">
               <input
-                id="book-code"
-                class="w-auto m-m:min-w-[70%] max-w-[80%] rounded-full text-center"
-                type="text"
-                name="bookCode"
-              />
-            </article>
-            <article class="pb-[7%]">
-              <p class="text-white antialiased text-2xl font-serif italic">
-                Kitap Adı:
-              </p>
-              <input
-                id="book-name"
-                class="w-auto m-m:min-w-[60%] max-w-[80%] rounded-full text-center"
-                type="text"
-                name="bookName"
-              />
-            </article>
-            <article class="pb-[7%]" id="add">
-              <p class="text-white antialiased text-2xl font-serif italic">
-                Yazar:
-              </p>
-              <input
-                class="w-auto m-m:min-w-[50%] max-w-[80%] rounded-full text-center"
-                type="text"
-                name="writer"
-              />
-            </article>
-            <article class="pb-[7%]">
-              <p
-                class="text-white antialiased w-[90%] text-2xl font-serif italic"
-              >
-                Syf Sayısı:
-              </p>
-              <input
-                class="w-auto m-m:min-w-[60%] max-w-[80%] rounded-full text-center"
-                type="number"
-                name="page"
-              />
-            </article>
-            <article class="pb-[10%]">
-              <p class="text-white antialiased text-2xl font-serif italic">
-                Yayınevi:
-              </p>
-              <input
-                class="w-auto m-m:min-w-[70%] max-w-[80%] rounded-full text-center"
-                type="text"
-                name="publisher"
-              />
-            </article>
-            <article>
-              <input
-                class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
                 type="submit"
                 value="Kitabı Ekle"
                 name="btn"
+                class="font-dancing-scripts text-xl py-[3%] px-[2%] bg-white rounded-lg"
               />
-            </article>
+            </div>
+          </article>
 
-            <article class="mt-4 mb-4 ml-24">
+          <article>
+            <div class="mt-[10%] flex justify-center items-center">
               <input
                 type="file"
                 name="ImportExcel"
                 title="Select File"
                 id="importData"
                 accept=".xls,.xlsx"
+                class="font-dancing-scripts text-xl py-[1%] px-[1%] pl-[17%] rounded-lg"
               />
-            </article>
-            <article class="m-m:mb-0 mb-6">
+            </div>
+          </article>
+
+          <article>
+            <div class="mt-[10%] flex justify-center items-center">
               <input
-                class="pt-[3%] pb-[3%] w-[55%] bg-[#BF9270] text-white antialiased rounded-full"
                 type="submit"
                 value="Exceli Ekle"
                 name="btn"
+                class="font-dancing-scripts text-xl py-[3%] px-[2%] bg-white rounded-lg"
               />
-            </article>
-          </form>
-        </section>
-      </div>
+            </div>
+          </article>
+        </form>
+      </section>
     </div>
   </body>
 </html>
