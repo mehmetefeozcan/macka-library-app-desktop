@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giriş Yap | YTÜ Maçka MTAL - Kütüphane</title>
+
+    <!-- Google Fonts - Dancing Scripts - Medium -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts - Rubik - Light 300 -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Rubik:wght@300&family=Zeyada&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Favicon -->
     <link
       rel="shortcut icon"
@@ -17,6 +36,67 @@
       rel="stylesheet"
     />
   </head>
+
+  <body
+    class="flex justify-center items-center text-center md:pt-[25%] lg:pt-[12%] pt-[35%]"
+  >
+    <form
+      action=""
+      method="post"
+      class="flex justify-center items-center flex-col text-center bg-[#d2a558] md:min-w-[40%] min-w-[70%] py-[7%] md:py-[3%] rounded-3xl"
+    >
+      <div class="mb-[7%]">
+        <p class="text-4xl antialiased font-dancing-scripts">Giriş Yap</p>
+      </div>
+
+      <div class="flex justify-center items-center text-center w-[40%]">
+        <section>
+          <p
+            class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+          >
+            Kullanıcı Adı:
+          </p>
+
+          <input
+            class="member-inp rounded-lg px-2"
+            type="text"
+            name="book"
+            list="bookList"
+          />
+        </section>
+      </div>
+
+      <div class="flex justify-center items-center text-center w-[40%] mt-[5%]">
+        <div class="">
+          <section>
+            <p
+              class="font-rubik text-xl antialiased positive-ls-3 mb-3 italic text-white"
+            >
+              Parola:
+            </p>
+
+            <input
+              class="member-inp rounded-lg px-2"
+              type="text"
+              name="book"
+              list="bookList"
+            />
+          </section>
+        </div>
+      </div>
+
+      <div class="mt-[60px] flex justify-center items-center">
+        <input
+          type="submit"
+          value="Onayla"
+          name="btn"
+          class="font-dancing-scripts text-xl py-[15%] px-[20%] bg-white rounded-lg"
+        />
+      </div>
+    </form>
+  </body>
+
+  <!--   
   <body>
     <div
       class="justify-center items-center text-center flex pt-[55%] md:pt-[20%] lg:pt-[15%] flex-col"
@@ -66,7 +146,7 @@
       </div>
       {% endfor %}
     </div>
-  </body>
+  </body> -->
 </html>
 
 <!-- {% for message in get_flashed_messages() %}
