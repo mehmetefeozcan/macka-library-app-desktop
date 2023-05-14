@@ -183,6 +183,7 @@ def addBookPage():
                     page=request.form["page"].split(".")[0],
                     publisher=request.form["publisher"],
                     category=request.form["category"],
+                    isGiven=False,
                 )
 
                 db.session.add(newBook)
@@ -241,6 +242,7 @@ def addBookPage():
                         page=str(row[sheets[i].columns.to_list()[3]]).split(".")[0],
                         publisher=row[sheets[i].columns.to_list()[4]],
                         category=categories[i],
+                        isGiven=False,
                     )
 
                     db.session.add(newBook)
