@@ -64,6 +64,8 @@ def indexPage():
     selectedCategory = ""
     if request.method == "POST":
         selectedCategory = request.form["category"]
+        if selectedCategory == "Düzyazı":
+            selectedCategory = "Düz Yazı"
 
         if selectedCategory == "Tümü":
             response = books.query.all()
