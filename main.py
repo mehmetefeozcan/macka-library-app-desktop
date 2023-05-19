@@ -62,9 +62,9 @@ class givenBooks(db.Model):
 @app.route("/home", methods=["POST", "GET"])
 def indexPage():
     selectedCategory = ""
-
     if request.method == "POST":
         selectedCategory = request.form["category"]
+
         if selectedCategory == "Tümü":
             response = books.query.all()
         elif selectedCategory == "Verilen Kitaplar":
@@ -83,14 +83,14 @@ def booksPage():
     return render_template("books.html")
 
 
-
-
+# verilen kitaplar sayfası
 @app.route("/given-books", methods=["POST", "GET"])
 def givenBooksPage():
     _givenBooks = givenBooks.query.all()
     return render_template("givenBooks.html", givenBooks=_givenBooks)
 
 
+# kitap verme sayfası
 @app.route("/give-book", methods=["POST", "GET"])
 def giveBookPage():
     bookRes = books.query.filter_by(isGiven=False).all()
@@ -125,6 +125,7 @@ def giveBookPage():
     return render_template("giveBook.html", books=bookRes, members=memberRes)
 
 
+# üye ekleme sayfası
 @app.route("/add-member", methods=["POST", "GET"])
 def memberPage():
     _members = members.query.all()
@@ -160,6 +161,7 @@ def memberPage():
     return render_template("addMember.html", members=_members)
 
 
+# kitap ekleme sayfası
 @app.route("/add", methods=["POST", "GET"])
 def addBookPage():
     if request.method == "POST" and request.form["btn"] == "Kitabı Ekle":
@@ -255,6 +257,7 @@ def addBookPage():
     return render_template("addBook.html")
 
 
+# login sayfası
 @app.route("/", methods=["POST", "GET"])
 def greet():
     if request.method == "POST":
