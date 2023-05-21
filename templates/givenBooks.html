@@ -191,7 +191,7 @@
               style="color: #bc9b63"
               class="font-weight-bold positive-ls-3 mb-3"
             >
-              İade ✔︎/x
+              İade
             </h4>
             <hr style="color: #bc9b63; border: solid 1px" />
           </div>
@@ -250,19 +250,24 @@
         </article>
 
         <article style="width: 60%; margin-right: 20px">
-          <div>
-            <input
-              type="submit"
-              value="İade Edildi"
-              style="
-                min-width: 120px;
-                border-radius: 10%;
-                border: 1px solid transparent;
-                background-color: #bc9b63;
-                color: white;
-              "
-            />
-          </div>
+          <form action="" method="post" enctype="multipart/form-data">
+            <div>
+              <button
+                type="submit"
+                value="{{book.bookCode}}"
+                name="iade"
+                style="
+                  min-width: 120px;
+                  border-radius: 10%;
+                  border: 1px solid transparent;
+                  background-color: #bc9b63;
+                  color: white;
+                "
+              >
+                İade Et
+              </button>
+            </div>
+          </form>
         </article>
       </div>
       {% endfor %}

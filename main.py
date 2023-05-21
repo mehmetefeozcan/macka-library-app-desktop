@@ -54,9 +54,8 @@ class givenBooks(db.Model):
 
 
 # for the table create
-"""with app.app_context(): 
-    db.create_all()
-"""
+""" with app.app_context():
+    db.create_all() """
 
 
 @app.route("/home", methods=["POST", "GET"])
@@ -89,6 +88,20 @@ def booksPage():
 @app.route("/given-books", methods=["POST", "GET"])
 def givenBooksPage():
     _givenBooks = givenBooks.query.all()
+
+    if request.method == "POST":
+        _code = request.form["iade"]
+
+        givenBooks.query.filter_by(bookCode=_code).delete()
+        _resbook = books.query.filter_by(bookCode=_code).first()
+
+        _resbook.isGiven = False
+
+        db.session.flush()
+        db.session.commit()
+
+        return redirect("/given-books")
+
     return render_template("givenBooks.html", givenBooks=_givenBooks)
 
 
@@ -236,8 +249,15 @@ def addBookPage():
                 ):
                     continue
 
-                res = books.query.filter_by(
-                    bookCode=sheets[i].columns.to_list()[0],
+                _code = 0
+
+                try:
+                    _code = row["Kayıt Numarası"].split(".")[0]
+                except Exception:
+                    _code = row["Kayıt Numarası"]
+
+                res = books.query.filter(
+                    books.bookCode == _code,
                 ).first()
                 print(res)
                 if res == None:
@@ -254,7 +274,7 @@ def addBookPage():
                     db.session.add(newBook)
                     db.session.commit()
                 else:
-                    flash("Aynı Bilgilerde Kitap Bulundu.")
+                    continue
 
     return render_template("addBook.html")
 
