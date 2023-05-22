@@ -1,110 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Kitaplar | YTÜ Maçka MTAL - Kütüphane</title>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Porto - Responsive HTML5 Template" />
-    <meta name="author" content="okler.net" />
+  <title>Kitaplar | YTÜ Maçka MTAL - Kütüphane</title>
 
-    <!-- Favicon -->
-    <link
-      rel="shortcut icon"
-      href="../static/img/school-logo.jpeg"
-      type="image/x-icon"
-    />
-    <link rel="school-logo" href="../static/img/school-logo.jpeg" />
+  <meta name="keywords" content="HTML5 Template" />
+  <meta name="description" content="Porto - Responsive HTML5 Template" />
+  <meta name="author" content="okler.net" />
 
-    <!-- Mobile Metas -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no"
-    />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="../static/img/school-logo.jpeg" type="image/x-icon" />
+  <link rel="school-logo" href="../static/img/school-logo.jpeg" />
 
-    <!-- Web Fonts  -->
-    <link
-      id="googleFonts"
-      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CLora:400,500,700&display=swap"
-      rel="stylesheet"
-      type="text/css"
-    />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no" />
 
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../static/css/all.min.css" />
-    <link rel="stylesheet" href="../static/css/animate.compat.css" />
-    <link rel="stylesheet" href="../static/css/simple-line-icons.min.css" />
-    <link rel="stylesheet" href="../static/css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="../static/css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="../static/css/magnific-popup.min.css" />
+  <!-- Web Fonts  -->
+  <link id="googleFonts"
+    href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CLora:400,500,700&display=swap"
+    rel="stylesheet" type="text/css" />
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="../static/css/theme.css" />
-    <link rel="stylesheet" href="../static/css/theme-elements.css" />
-    <link rel="stylesheet" href="../static/css/theme-blog.css" />
-    <link rel="stylesheet" href="../static/css/theme-shop.css" />
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/all.min.css" />
+  <link rel="stylesheet" href="../static/css/animate.compat.css" />
+  <link rel="stylesheet" href="../static/css/simple-line-icons.min.css" />
+  <link rel="stylesheet" href="../static/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="../static/css/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="../static/css/magnific-popup.min.css" />
 
-    <!-- Demo CSS -->
-    <link rel="stylesheet" href="../static/css/demo-restaurant.css" />
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="../static/css/theme.css" />
+  <link rel="stylesheet" href="../static/css/theme-elements.css" />
+  <link rel="stylesheet" href="../static/css/theme-blog.css" />
+  <link rel="stylesheet" href="../static/css/theme-shop.css" />
 
-    <!-- Skin CSS -->
-    <link
-      id="skinCSS"
-      rel="stylesheet"
-      href="../static/css/skin-restaurant.css"
-    />
+  <!-- Demo CSS -->
+  <link rel="stylesheet" href="../static/css/demo-restaurant.css" />
 
-    <!-- Theme Custom CSS -->
-    <link rel="stylesheet" href="../static/css/custom.css" />
+  <!-- Skin CSS -->
+  <link id="skinCSS" rel="stylesheet" href="../static/css/skin-restaurant.css" />
 
-    <link href="../static/css/all.min.css" rel="stylesheet" type="text/css" />
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="../static/css/custom.css" />
 
-    <!-- General Custom CSS -->
-    <link rel="stylesheet" href="../static/css/style.css" />
+  <link href="../static/css/all.min.css" rel="stylesheet" type="text/css" />
 
-    <!-- Dropdown -->
+  <!-- General Custom CSS -->
+  <link rel="stylesheet" href="../static/css/style.css" />
 
-    <!-- Head Libs -->
-    <script src="../static/js/modernizr.min.js"></script>
-  </head>
-  <body>
-    <div style="margin-left: 180px; margin-top: 40px">
-      <a
-        href="/home"
-        style="font-size: large; text-decoration: none; color: black"
-        ><- Anasayfa</a
-      >
-    </div>
+  <!-- Dropdown -->
 
-    <div
-      style="
+  <!-- Head Libs -->
+  <script src="../static/js/modernizr.min.js"></script>
+</head>
+
+<body>
+  <div style="margin-left: 180px; margin-top: 40px">
+    <a href="/home" style="font-size: large; text-decoration: none; color: black"><- Anasayfa</a>
+  </div>
+
+  <div style="
         width: 190px;
         margin: 0 auto;
         padding-top: 50px;
         text-align: center;
-      "
-    >
-      {% block category %}
-      <h1
-        style="
+      ">
+    {% block category %}
+    <h1 style="
           color: #bc9b63;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           margin: 0;
-        "
-      >
-        {{ category }}
-      </h1>
-      {% endblock %}
-      <hr style="color: #bc9b63; border: solid 1px" />
-    </div>
+        ">
+      {{ category }}
+    </h1>
+    {% endblock %}
+    <hr style="color: #bc9b63; border: solid 1px" />
+  </div>
 
-    <main style="display: flex; flex-direction: column">
-      <div
-        style="
+  <main style="display: flex; flex-direction: column">
+    <div style="
           width: 90%;
           margin: 0 auto;
           text-align: center;
@@ -113,97 +92,82 @@
           padding-top: 40px;
           display: flex;
           flex-direction: row;
-        "
-      >
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Türü
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+        ">
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Türü
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Kodu
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Kodu
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Adı
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Adı
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Yazarı
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Yazarı
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Sayfa
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Sayfa
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Yayınevi
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Yayınevi
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
 
-        <article style="width: 100%">
-          <div>
-            <h4
-              style="color: #bc9b63"
-              class="font-weight-bold positive-ls-3 mb-3"
-            >
-              Boşta Mı?
-            </h4>
-            <hr style="color: #bc9b63; border: solid 1px" />
-          </div>
-        </article>
-      </div>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Boşta Mı?
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
+      <article style="width: 100%">
+        <div>
+          <h4 style="color: #bc9b63" class="font-weight-bold positive-ls-3 mb-3">
+            Sil
+          </h4>
+          <hr style="color: #bc9b63; border: solid 1px" />
+        </div>
+      </article>
+    </div>
 
-      <!-- books -->
-      {% for book in books %}
-      <div
-        style="
+    <!-- books -->
+    {% for book in books %}
+    <div style="
           width: 90%;
           margin: 0 auto;
           text-align: center;
@@ -212,55 +176,70 @@
           padding-top: 20px;
           display: flex;
           flex-direction: row;
-        "
-      >
-        <article style="width: 60%; margin-right: 50px">
-          <div>
-            <h4 style="word-break: break-all">{{book.category}}</h4>
-          </div>
-        </article>
+        ">
+      <article style="width: 60%; margin-right: 50px">
+        <div>
+          <h4 style="word-break: break-all">{{book.category}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 50px">
-          <div>
-            <h4 style="word-break: break-all">{{book.bookCode}}</h4>
-          </div>
-        </article>
+      <article style="width: 60%; margin-right: 50px">
+        <div>
+          <h4 style="word-break: break-all">{{book.bookCode}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 50px">
-          <div>
-            <h4 style="word-break: break-all">{{book.bookName}}</h4>
-          </div>
-        </article>
+      <article style="width: 60%; margin-right: 50px">
+        <div>
+          <h4 style="word-break: break-all">{{book.bookName}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 50px">
-          <div>
-            <h4 style="word-break: break-all">{{book.writer}}</h4>
-          </div>
-        </article>
+      <article style="width: 60%; margin-right: 50px">
+        <div>
+          <h4 style="word-break: break-all">{{book.writer}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 50px">
-          <div>
-            <h4 style="word-break: break-all">{{book.page}}</h4>
-          </div>
-        </article>
+      <article style="width: 60%; margin-right: 50px">
+        <div>
+          <h4 style="word-break: break-all">{{book.page}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 20px">
-          <div>
-            <h4 style="word-break: break-all">{{book.publisher}}</h4>
-          </div>
-        </article>
+      <article style="width: 60%; margin-right: 20px">
+        <div>
+          <h4 style="word-break: break-all">{{book.publisher}}</h4>
+        </div>
+      </article>
 
-        <article style="width: 60%; margin-right: 20px">
+      <article style="width: 60%; margin-right: 20px">
+        <div>
+          {% if book.isGiven == False: %}
+          <h4 style="word-break: break-all">Evet</h4>
+          {% else %}
+          <h4 style="word-break: break-all">Hayır</h4>
+          {% endif %}
+        </div>
+      </article>
+      <article style="width: 60%; margin-right: 20px">
+        <form action="" method="post">
           <div>
-            {% if book.isGiven == False: %}
-            <h4 style="word-break: break-all">Evet</h4>
-            {% else %}
-            <h4 style="word-break: break-all">Hayır</h4>
-            {% endif %}
+            <button type="submit" value="{{book.bookCode}}" name="Sil" style="
+                  min-width: 120px;
+                  border-radius: 10%;
+                  border: 1px solid transparent;
+                  background-color: #bc9b63;
+                  color: white;
+                ">
+              Sil
+            </button>
           </div>
-        </article>
-      </div>
-      {% endfor %}
-    </main>
-  </body>
+        </form>
+      </article>
+    </div>
+    {% endfor %}
+  </main>
+</body>
+
 </html>

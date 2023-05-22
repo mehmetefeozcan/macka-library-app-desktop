@@ -52,7 +52,6 @@ class givenBooks(db.Model):
     classroom = db.Column(db.String(10), nullable=False)
     no = db.Column(db.String(10), nullable=False)
 
-print("hello world")
 
 # for the table create
 """ with app.app_context():
@@ -80,8 +79,10 @@ def indexPage():
     return render_template("index.html")
 
 
-@app.route("/books")
+@app.route("/books",  methods=["POST", "GET"])
 def booksPage():
+   
+    print(request.data)
     return render_template("books.html")
 
 
@@ -158,6 +159,7 @@ def memberPage():
             res = members.query.filter_by(
                 name=request.form["memberName"],
                 surname=request.form["memberSurname"],
+                no=request.form['memberNumber'],
             ).first()
 
             if res == None:
@@ -173,7 +175,8 @@ def memberPage():
 
                 _members = members.query.all()
                 redirect("/add-member")
-
+            else: 
+                flash("Zaten böyle bir üye var!")
     return render_template("addMember.html", members=_members)
 
 
