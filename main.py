@@ -52,6 +52,7 @@ class givenBooks(db.Model):
     classroom = db.Column(db.String(10), nullable=False)
     no = db.Column(db.String(10), nullable=False)
 
+print("hello world")
 
 # for the table create
 """ with app.app_context():
