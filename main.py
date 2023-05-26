@@ -160,35 +160,38 @@ def memberPage():
     _members = members.query.all()
 
     if request.method == "POST":
-        if (
-            request.form["memberName"] == ""
-            or request.form["classroom"] == ""
-            or request.form["memberSurname"] == ""
-            or request.form["memberNumber"] == ""
-        ):
-            flash("Lütfen tüm alanları doldurunuz !")
-        else:
-            res = members.query.filter_by(
-                name=request.form["memberName"],
-                surname=request.form["memberSurname"],
-                no=request.form["memberNumber"],
-            ).first()
-
-            if res == None:
-                newMember = members(
+        if request.form["btn"] == "Üye Ekle":
+            if (
+                request.form["memberName"] == ""
+                or request.form["classroom"] == ""
+                or request.form["memberSurname"] == ""
+                or request.form["memberNumber"] == ""
+            ):
+                flash("Lütfen tüm alanları doldurunuz !")
+            else:
+                res = members.query.filter_by(
                     name=request.form["memberName"],
                     surname=request.form["memberSurname"],
-                    classroom=request.form["classroom"],
                     no=request.form["memberNumber"],
-                )
+                ).first()
 
-                db.session.add(newMember)
-                db.session.commit()
+                if res == None:
+                    newMember = members(
+                        name=request.form["memberName"],
+                        surname=request.form["memberSurname"],
+                        classroom=request.form["classroom"],
+                        no=request.form["memberNumber"],
+                    )
 
-                _members = members.query.all()
-                redirect("/add-member")
-            else:
-                flash("Zaten böyle bir üye var!")
+                    db.session.add(newMember)
+                    db.session.commit()
+
+                    _members = members.query.all()
+                    redirect("/add-member")
+                else:
+                    flash("Zaten böyle bir üye var!")
+        else:
+            print("asd")
     return render_template("addMember.html", members=_members)
 
 

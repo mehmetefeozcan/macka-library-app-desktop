@@ -85,7 +85,7 @@
       role="alert"
     >
       <span class="sr-only">Info</span>
-      <div> {{message}}</div>
+      <div>{{message}}</div>
     </div>
     {% endfor %}
     <form action="" method="post">
@@ -259,6 +259,17 @@
               <hr style="color: #bc9b63; border: solid 1px" />
             </div>
           </article>
+          <article style="width: 100%">
+            <div>
+              <h4
+                style="color: #bc9b63"
+                class="font-weight-bold positive-ls-3 mb-3"
+              >
+                Sil
+              </h4>
+              <hr style="color: #bc9b63; border: solid 1px" />
+            </div>
+          </article>
         </div>
 
         <!-- books -->
@@ -297,6 +308,26 @@
             <div>
               <h4 style="word-break: break-all">{{member.no}}</h4>
             </div>
+          </article>
+          <article style="width: 60%; margin-right: 20px">
+            <form action="" method="post">
+              <div>
+                <button
+                  type="submit"
+                  value="{{member.no}}"
+                  name="Sil"
+                  style="
+                    min-width: 120px;
+                    border-radius: 10%;
+                    border: 1px solid transparent;
+                    background-color: #bc9b63;
+                    color: white;
+                  "
+                >
+                  Sil
+                </button>
+              </div>
+            </form>
           </article>
         </div>
         {% endfor %}
