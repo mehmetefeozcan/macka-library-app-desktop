@@ -63,27 +63,39 @@ def indexPage():
     selectedCategory = ""
     if request.method == "POST":
         selectedCategory = request.form["category"]
-        if selectedCategory == "Düzyazı":
-            selectedCategory = "Düz Yazı"
 
-        if selectedCategory == "Tümü":
-            response = books.query.all()
-        elif selectedCategory == "Verilen Kitaplar":
-            return redirect("/given-books")
-        else:
-            response = books.query.filter_by(
-                category=selectedCategory,
-            ).all()
-
-        return render_template("books.html", category=selectedCategory, books=response)
+        return redirect(url_for(".booksPage", category=selectedCategory))
     return render_template("index.html")
 
 
-@app.route("/books",  methods=["POST", "GET"])
+@app.route("/books", methods=["POST", "GET"])
 def booksPage():
-   
-    print(request.data)
-    return render_template("books.html")
+    selectedCategory = request.args["category"]
+    if selectedCategory == "Düzyazı":
+        selectedCategory = "Düz Yazı"
+
+    if selectedCategory == "Tümü":
+        response = books.query.all()
+    elif selectedCategory == "Verilen Kitaplar":
+        return redirect("/given-books")
+    else:
+        response = books.query.filter_by(
+            category=selectedCategory,
+        ).all()
+
+    if request.method == "POST":
+        _code = request.form["Sil"]
+
+        books.query.filter_by(bookCode=_code).delete()
+        response = books.query.filter_by(
+            category=selectedCategory,
+        ).all()
+        db.session.flush()
+        db.session.commit()
+
+        return render_template("books.html", books=response, category=selectedCategory)
+
+    return render_template("books.html", books=response, category=selectedCategory)
 
 
 # verilen kitaplar sayfası
@@ -159,7 +171,7 @@ def memberPage():
             res = members.query.filter_by(
                 name=request.form["memberName"],
                 surname=request.form["memberSurname"],
-                no=request.form['memberNumber'],
+                no=request.form["memberNumber"],
             ).first()
 
             if res == None:
@@ -175,7 +187,7 @@ def memberPage():
 
                 _members = members.query.all()
                 redirect("/add-member")
-            else: 
+            else:
                 flash("Zaten böyle bir üye var!")
     return render_template("addMember.html", members=_members)
 
