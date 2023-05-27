@@ -170,8 +170,6 @@ def memberPage():
                 flash("Lütfen tüm alanları doldurunuz !")
             else:
                 res = members.query.filter_by(
-                    name=request.form["memberName"],
-                    surname=request.form["memberSurname"],
                     no=request.form["memberNumber"],
                 ).first()
 
@@ -197,7 +195,8 @@ def memberPage():
 
             db.session.flush()
             db.session.commit()
-        _members = members.query.all()
+            _members = members.query.all()
+            redirect("/add-member")
 
     return render_template("addMember.html", members=_members)
 
