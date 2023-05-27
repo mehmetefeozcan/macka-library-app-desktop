@@ -160,7 +160,7 @@ def memberPage():
     _members = members.query.all()
 
     if request.method == "POST":
-        if request.form["btn"] == "Üye Ekle":
+        if "btn" in request.form:
             if (
                 request.form["memberName"] == ""
                 or request.form["classroom"] == ""
@@ -190,8 +190,15 @@ def memberPage():
                     redirect("/add-member")
                 else:
                     flash("Zaten böyle bir üye var!")
-        else:
-            print("asd")
+        if "Sil" in request.form:
+            _no = request.form["Sil"]
+
+            members.query.filter_by(no=_no).delete()
+
+            db.session.flush()
+            db.session.commit()
+        _members = members.query.all()
+
     return render_template("addMember.html", members=_members)
 
 
@@ -305,25 +312,21 @@ def greet():
         if request.form["username"] == "" or request.form["password"] == "":
             flash("Lütfen tüm alanları doldurunuz")
 
-            print("if")
         else:
             try:
-                print("try")
                 res = user.query.filter_by(
                     username=request.form["username"],
                     password=request.form["password"],
                 ).first()
 
-                print(res)
                 if res != None:
                     return redirect("/home")
                 flash("Hatalı giriş!")
 
             except Exception:
-                print("Exception")
                 flash("Kullanıcı bulunamadı")
 
-    return render_template("login.html")  # return render_template("login.html")
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
