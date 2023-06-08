@@ -11,12 +11,9 @@ app.secret_key = "macka_LIBRARY2023"
 # db connect
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///./library.db"
 # add flaskwebgui
-ui = FlaskUI(app=app, server="flask", port=8080)
+ui = FlaskUI(app=app, server="flask")
 # add db
 db = SQLAlchemy(app)
-
-
-
 
 selectedCategory = ""
 
