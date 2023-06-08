@@ -1,0 +1,4 @@
+Flask==2.2.3
+flask_sqlalchemy==3.0.3
+flaskwebgui==1.0.4
+pandas==1.5.3
